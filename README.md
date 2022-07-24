@@ -5,6 +5,10 @@ This is a list of software and configurations i use on Linux.
 # [Debian](Debian/)
 ![logo](Debian/Images/Debian.png)
 
+## Sources
+* [Downloads](https://www.debian.org/distrib/netinst)
+* [Manuals](https://www.debian.org/releases/stable/installmanual)
+
 ## Config
 * [Debian](Debian/)
 
@@ -15,7 +19,7 @@ This is a list of software and configurations i use on Linux.
 
 ## Sources
 * [Downloads](https://www.proxmox.com/en/downloads)
-* [Wiki - PVE](https://pve.proxmox.com/wiki/Main_Page)
+* [Wiki - PVE](https://www.debian.org/releases/stable/installmanual)
 * [Wiki - PBS](https://pbs.proxmox.com/docs/)
 * [Wiki - PMG](https://pmg.proxmox.com/pmg-docs/pmg-admin-guide.html#chapter_pmgconfig)
 
