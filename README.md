@@ -11,6 +11,8 @@ This is a list of software and configurations i use on Linux.
 
 # [ProxMox](ProxMox/)
 
+![logo](https://i.imgur.com/IRgkp2o.png)
+
 ## Sources
 * [Downloads](https://www.proxmox.com/en/downloads)
 * [Wiki - PVE](https://pve.proxmox.com/wiki/Main_Page)
