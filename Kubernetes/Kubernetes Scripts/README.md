@@ -260,3 +260,6 @@ Most of the code above is self experimenting and reading the docs. Some are copi
 * https://kubernetes.io/docs/reference/kubectl/cheatsheet/
 * https://medium.com/flant-com/kubectl-commands-and-tips-7b33de0c5476
 * https://github.com/robscott/kube-capacity
+
+
+# [Source](https://github.com/eldada/kubernetes-scripts)
