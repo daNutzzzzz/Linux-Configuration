@@ -12,6 +12,8 @@ This is a list of software and configurations i use on Linux.
 ## Config
 * [Debian](Debian/)
 
+---
+
 # [Ubuntu](Ubuntu/)
 ![logo](Ubuntu/Images/ubuntu-1-logo-png-transparent.png)
 
@@ -20,7 +22,9 @@ This is a list of software and configurations i use on Linux.
 * [Manuals](https://ubuntu.com/server/docs)
 
 ## Config
-* [Debian](Debian/)
+* [Ubuntu](Ubuntu/)
+
+---
 
 # [ProxMox](ProxMox/)
 ![logo](ProxMox/Images/proxmox-logo-1-1024x205.png)
