@@ -2,15 +2,15 @@
 
 This is a list of software and configurations i use on Linux.
 
-# Debian
+# [Debian](Debian/)
+![logo](Debian/Images/Debian.png)
 
 ## Config
-* [test](ProxMox/)
+* [Debian](Debian/)
 
 
 
 # [ProxMox](ProxMox/)
-
 ![logo](ProxMox/Images/proxmox-logo-1-1024x205.png)
 
 ## Sources
