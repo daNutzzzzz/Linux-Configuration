@@ -15,5 +15,8 @@ sudo apt-get install htop
 sudo apt-get install iotop
 sudo apt-get install bashtop
 
+# storage
+sudo apt-get install duf
+
 ## 7zip
 sudo apt-get install p7zip-full
