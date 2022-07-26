@@ -1,0 +1,48 @@
+# https://docs.docker.com/engine/install/ubuntu/
+
+# Uninstall old versions
+sudo apt-get remove docker docker-engine docker.io containerd runc
+
+# Set up the repository
+sudo apt-get update
+sudo apt-get -y install \
+   ca-certificates \
+   curl \
+   gnupg \
+   lsb-release
+   
+# Add Docker’s official GPG key:
+sudo mkdir -p /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+
+# Use the following command to set up the repository:
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+# Install Docker Engine
+sudo apt-get update
+sudo apt-get -y install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+
+# To check if the installation ended successfuly, just run:
+docker -v
+sudo docker version
+
+# Verify that Docker Engine is installed correctly by running the hello-world image.
+# sudo docker run hello-world
+
+# Create Docker Folders & Files
+sudo mkdir /mnt/ssd1/docker
+sudo mkdir /mnt/ssd1/docker/docker-compose
+sudo mkdir /mnt/ssd1/docker/docker-data
+sudo touch /mnt/ssd1/docker/docker-compose/docker-compose/yml
+
+# Repoint Docker Images Repository
+
+# start docker compose
+sudo docker compose up -d
+
+# add port access requirements to firewall
+sudo ufw allow 82/tcp
+
+
