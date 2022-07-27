@@ -1,3 +1,6 @@
+# show storage
+lsblk
+
 # Format full disk
 
 sudo parted -l
