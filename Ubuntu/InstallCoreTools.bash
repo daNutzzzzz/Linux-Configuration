@@ -14,6 +14,7 @@ sudo apt-get -y install parted
 
 # Network Management Tools
 sudo apt-get -y install iputils-ping
+sudo apt-get -y install net-tools  
 
 ## Disk Performance Tools
 sudo apt-get -y install atop
