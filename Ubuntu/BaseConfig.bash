@@ -7,3 +7,9 @@ sudo [ -z "$(find -H /var/lib/apt/lists -maxdepth 0 -mtime -0)" ] && sudo apt-ge
 
 # Change Root Password
 sudo passwd root
+
+# Add User to Sudo Group
+sudo usermod -aG sudo docker
+
+# Verify User Belongs to Sudo Group
+groups docker

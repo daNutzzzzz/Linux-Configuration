@@ -35,14 +35,19 @@ sudo docker version
 sudo mkdir /mnt/ssd1/docker
 sudo mkdir /mnt/ssd1/docker/docker-compose
 sudo mkdir /mnt/ssd1/docker/docker-data
-sudo touch /mnt/ssd1/docker/docker-compose/docker-compose/yml
+sudo mkdir /mnt/ssd1/docker/docker-images
+sudo touch /mnt/ssd1/docker/docker-compose/docker-compose.yml
+sudo mkdir /mnt/ssd1/download
 
 # Repoint Docker Images Repository
 
 # start docker compose
-sudo docker compose up -d
+sudo docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d
 
-# add port access requirements to firewall
-sudo ufw allow 82/tcp
+# Create Docker User and Group
+#sudo useradd docker
+#sudo passwd docker
 
+# Get ID's for both
+id
 
