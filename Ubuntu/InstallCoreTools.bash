@@ -1,7 +1,7 @@
 # Install Core Tools
 
 ## Firewall & Configure
-sudo apt-get -y install ufw && sudo ufw allow ssh && sudo ufw enable -y
+sudo apt-get -y install ufw && sudo ufw allow ssh && sudo ufw enable
 
 ## System Monitor
 sudo apt-get -y install glances
