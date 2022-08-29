@@ -45,7 +45,7 @@ sudo touch daemon.json
 sudo nano daemon.json
 
 {
-"data-root": "/mnt/newlocation"
+"data-root": "/mnt/ssd1/docker/docker-images"
 }
 
 # Restart Docker to pick up new location
