@@ -40,6 +40,18 @@ sudo touch /mnt/ssd1/docker/docker-compose/docker-compose.yml
 sudo mkdir /mnt/ssd1/download
 
 # Repoint Docker Images Repository
+cd /etc/docker/
+sudo touch daemon.json
+sudo nano daemon.json
+
+{
+"data-root": "/mnt/newlocation"
+}
+
+# Restart Docker to pick up new location
+sudo systemctl restart docker
+
+
 
 # start docker compose
 sudo docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d
