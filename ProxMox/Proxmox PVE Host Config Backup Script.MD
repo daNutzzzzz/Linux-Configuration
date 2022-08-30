@@ -22,6 +22,10 @@ Copy and paste following script into the created file (e.g. using `vim.tiny`):
     tar -czf $BACKUP_PATH$BACKUP_FILE-$(date +%Y_%m_%d-%H_%M_%S).tar.gz --absolute-names $PVE_BACKUP_SET $PVE_CUSTOM_BACKUP_SET
     find $BACKUP_PATH$BACKUP_FILE-* -mindepth 0 -maxdepth 0 -depth -mtime +$KEEP_DAYS -delete
 
+    curl https://hc-ping.com/9ff4f635-82fa-4313-838d-ad57096f1bb3
+
+
+
 Note: Please modify the `PVE_CUSTOM_BACKUP_SET` variable to fit your PVE host needs. You can leave it as empty string (`""`) if no host specific configuration is needed.
 
 Don't forget to change path where to store backups, the best way is to store backups outside physical host, e.g. on attached NAS storage.
