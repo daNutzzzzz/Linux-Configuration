@@ -1,0 +1,49 @@
+# Change password if required
+passwd root
+
+# Disable Swapfile (https://blog.lbdg.me/proxmox-best-performance-disable-swappiness/)
+# Check the current value
+cat /proc/sys/vm/swappiness
+
+# Define the new one
+sysctl vm.swappiness=0
+
+# Disable SWAP, it'll take some times to clean the SWAP area
+swapoff -a
+
+# Storage
+# Prerpare Storage: - https://www.hostfav.com/blog/index.php/2017/02/01/add-a-new-physical-hard-drive-to-proxmox-ve-4x-5x/
+Use this Guide!
+
+==========================
+
+fdisk -l (to find the right device (usually /dev/sd*))
+
+or
+
+wipefs --all /dev/sd*
+
+fdisk /dev/sd* (to edit the disk)
+
+	choose d to delete existing partition (you might need to do it several times, until there is no partition anymore)
+	then w to write the deletion
+
+fdisk /dev/sd* (to edit the disk again)
+
+	g to create the new partition
+	w to write it
+
+# Create FS - https://nubcakes.net/index.php/2019/03/05/how-to-add-storage-to-proxmox/
+mkfs.ext4 -L adisk /dev/sd*
+
+# Mount Storage - https://forum.proxmox.com/threads/how-to-mount-existing-disk-to-storage.66559/
+mkdir /mnt/HDD1-1TB
+mount /dev/sd** /mnt/HDD1-1TB
+
+
+#get UUID of disk
+blkid
+
+
+
+

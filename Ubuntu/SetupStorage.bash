@@ -36,6 +36,12 @@ sudo cp /etc/fstab /etc/fstab_bu
 sudo nano /etc/fstab
 /dev/disk/by-uuid/11795ef1-589d-4a77-9c93-8e160657cf02 /mnt/ssd1 ext4 defaults 0 0
 
+or 
+
+# https://linuxize.com/post/how-to-mount-an-nfs-share-in-linux/#:~:text=Use%20the%20following%20procedure%20to%20automatically%20mount%20an,of%20the%20%2Fetc%2Ffstab%20and%20mount%20the%20share.%20
+//10.0.8.10/Multimedia     /mnt/Nexus-M-Multimedia cifs defaults,rw,credentials=/mnt/hdd-1tb/docker/docker-compose/nas-credentials
+
+
 # reboot
 sudo reboot
 
