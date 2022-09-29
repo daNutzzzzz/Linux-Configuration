@@ -35,16 +35,18 @@ for ((waitseconds=0; waitseconds<=300; waitseconds++)); do
 done
 
 killall -9 dnsmasq
-sudo docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d pihole
 sudo docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d portainer
+sudo docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d pihole
 sudo docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d ddns-updater
-sudo docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d heimdall
-sudo docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d wireguard
-sudo docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d noip_renew
-sudo docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d unifi-controller
-sudo docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d watchtower
 sudo docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d smokeping
+sudo docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d alertmanager
+sudo docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d grafana
+sudo docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d librespeed
+# sudo docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d teleport
+sudo docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d noip_renew
+sudo docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d wireguard
+# sudo docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d unifi-controller
+sudo docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d watchtower
 sudo docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d rdb-ie
-
-
-
+sudo docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d noip_renew
+sudo docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d duplicati
