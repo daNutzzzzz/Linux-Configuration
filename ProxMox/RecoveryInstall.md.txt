@@ -1,0 +1,96 @@
+# Change password if required
+passwd root
+
+# Disable Swapfile (https://blog.lbdg.me/proxmox-best-performance-disable-swappiness/)
+# Check the current value
+cat /proc/sys/vm/swappiness
+
+# Define the new one
+sysctl vm.swappiness=0
+
+# Disable SWAP, it'll take some times to clean the SWAP area
+swapoff -a
+
+# Load into Proxmox Console
+- Go to Host > Network > Create Linux Bridge > add IP details and link Bridge port > Apply changes
+- Go to Host > DNS > Add additional DNS
+- Go to Host > Disks > LVM . Confirm all disks are present
+- Go to DataCenter > Storage > Add LVM > ID: SSD1 > Volume Group: Select Disk > Click Add
+- Go to DataCenter > Storage > Add LVM > ID: HDD1-1TB > Volume Group: Select Disk > Click Add
+##https://manjaro.site/how-to-create-a-new-virtual-machine-from-an-existing-disk-image-in-proxmox/#:~:text=Steps%20to%20Create%20a%20New%20Virtual%20Machine%20from,...%203%20Step%203.%20Change%20the%20VM%20configuration
+- Right Click Host > Create VM > Name: Docker-01 > ID: 100 > OS: None > Disks: Local-LVM - 1Gb > CPU - 2 Cores > MEM: 6Gb > Network: vmbr1
+- Click VM Docker-02 > Hardware > Disk local-lvm 1G > Remove
+- SSH to /etc/pve/qemu-server/
+- nano VM file, likely "100.conf"
+- Add:
+scsi0: SSD1:vm-100-disk-0,size=21.47G,ssd=1
+scsi1: SSD1:vm-100-disk-1,size=32.21G,ssd=1
+scsi2: HDD1-1TB:vm-100-disk-0,size=912.68G
+- Click VM Docker-02 > Options > Boot Order: scsi0
+
+# Start VM
+
+
+
+
+============================================================================
+
+### MISC 
+## Storage
+
+fdisk -l (to find the right device (usually /dev/sd*))
+
+
+# Mount Docker Storage - https://forum.proxmox.com/threads/how-to-mount-existing-disk-to-storage.66559/
+mkdir /mnt/SSD1
+mount /dev/sdb1 /mnt/SSD1
+
+# Mount Download Storage - https://forum.proxmox.com/threads/how-to-mount-existing-disk-to-storage.66559/
+mkdir /mnt/HDD1-1TB
+mount /dev/sdc1 /mnt/HDD1-1TB
+
+
+#get UUID of disk
+blkid
+
+
+
+
+
+
+# Storage
+# Prerpare Storage: - https://www.hostfav.com/blog/index.php/2017/02/01/add-a-new-physical-hard-drive-to-proxmox-ve-4x-5x/
+Use this Guide!
+
+==========================
+
+fdisk -l (to find the right device (usually /dev/sd*))
+
+or
+
+wipefs --all /dev/sd*
+
+fdisk /dev/sd* (to edit the disk)
+
+	choose d to delete existing partition (you might need to do it several times, until there is no partition anymore)
+	then w to write the deletion
+
+fdisk /dev/sd* (to edit the disk again)
+
+	g to create the new partition
+	w to write it
+
+# Create FS - https://nubcakes.net/index.php/2019/03/05/how-to-add-storage-to-proxmox/
+mkfs.ext4 -L adisk /dev/sd*
+
+# Mount Storage - https://forum.proxmox.com/threads/how-to-mount-existing-disk-to-storage.66559/
+mkdir /mnt/HDD1-1TB
+mount /dev/sd** /mnt/HDD1-1TB
+
+
+#get UUID of disk
+blkid
+
+
+
+
