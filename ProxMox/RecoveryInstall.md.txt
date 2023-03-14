@@ -33,7 +33,7 @@ scsi2: HDD1-1TB:vm-100-disk-0,size=912.68G
 
 # Start VM
 
-
+Record SupoerBlocks
 
 
 
