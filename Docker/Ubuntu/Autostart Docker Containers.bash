@@ -36,7 +36,6 @@ Echo '#docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -
 Echo 'docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d watchtower' >> /etc/rc.local
 Echo 'docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d rdb-ie' >> /etc/rc.local
 Echo 'docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d noip_renew' >> /etc/rc.local
-Echo 'docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d duplicati' >> /etc/rc.local
 Echo 'docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d grafana' >> /etc/rc.local
 
 
