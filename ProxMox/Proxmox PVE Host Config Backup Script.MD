@@ -12,15 +12,15 @@ To create backup script that will be executed every day we can create backup scr
 
 Copy and paste following script into the created file (e.g. using `vim.tiny`):
 
-#!/bin/sh
-BACKUP_PATH="/var/tmp/"
-BACKUP_FILE="pve-host"
-KEEP_DAYS=7
-PVE_BACKUP_SET="/etc/pve/ /etc/lvm/ /etc/modprobe.d/ /etc/network/interfaces /etc/vzdump.conf /etc/sysctl.conf /etc/resolv.conf /etc/ksmtuned.conf /etc/hosts /etc/hostname /etc/cron* /etc/aliases"
-PVE_CUSTOM_BACKUP_SET="/etc/apcupsd/ /etc/multipath/ /etc/multipath.conf"
+	#!/bin/sh
+	BACKUP_PATH="/var/tmp/"
+	BACKUP_FILE="pve-host"
+	KEEP_DAYS=7
+	PVE_BACKUP_SET="/etc/pve/ /etc/lvm/ /etc/modprobe.d/ /etc/network/interfaces /etc/vzdump.conf /etc/sysctl.conf /etc/resolv.conf /etc/ksmtuned.conf /etc/hosts /etc/hostname /etc/cron* /etc/aliases"
+	PVE_CUSTOM_BACKUP_SET="/etc/apcupsd/ /etc/multipath/ /etc/multipath.conf"
     
-tar -czf $BACKUP_PATH$BACKUP_FILE-$(date +%Y_%m_%d-%H_%M_%S).tar.gz --absolute-names $PVE_BACKUP_SET $PVE_CUSTOM_BACKUP_SET
-find $BACKUP_PATH$BACKUP_FILE-* -mindepth 0 -maxdepth 0 -depth -mtime +$KEEP_DAYS -delete
+	tar -czf $BACKUP_PATH$BACKUP_FILE-$(date +%Y_%m_%d-%H_%M_%S).tar.gz --absolute-names $PVE_BACKUP_SET $PVE_CUSTOM_BACKUP_SET
+	find $BACKUP_PATH$BACKUP_FILE-* -mindepth 0 -maxdepth 0 -depth -mtime +$KEEP_DAYS -delete
 
 #Proxmox 1
 curl https://hc-ping.com/9ff4f635-82fa-4313-838d-ad57096f1bb3

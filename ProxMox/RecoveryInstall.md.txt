@@ -10,7 +10,17 @@ sysctl vm.swappiness=0
 swapoff -a
 
 # Configure Proxmox PVE Host Config Backup Script
- - See other file
+touch /etc/cron.daily/pvehost-backup
+chmod 755 /etc/cron.daily/pvehost-backup
+echo '#!/bin/sh' >> /etc/cron.daily/pvehost-backup
+echo 'BACKUP_PATH="/var/tmp/"' >> /etc/cron.daily/pvehost-backup
+echo 'BACKUP_FILE="pve-host"' >> /etc/cron.daily/pvehost-backup
+echo 'KEEP_DAYS=7' >> /etc/cron.daily/pvehost-backup
+echo 'PVE_BACKUP_SET="/etc/pve/ /etc/lvm/ /etc/modprobe.d/ /etc/network/interfaces /etc/vzdump.conf /etc/sysctl.conf /etc/resolv.conf /etc/ksmtuned.conf /etc/hosts /etc/hostname /etc/cron* /etc/aliases"' >> /etc/cron.daily/pvehost-backup
+echo 'PVE_CUSTOM_BACKUP_SET="/etc/apcupsd/ /etc/multipath/ /etc/multipath.conf"' >> /etc/cron.daily/pvehost-backup
+echo '' >> /etc/cron.daily/pvehost-backup
+echo 'tar -czf $BACKUP_PATH$BACKUP_FILE-$(date +%Y_%m_%d-%H_%M_%S).tar.gz --absolute-names $PVE_BACKUP_SET $PVE_CUSTOM_BACKUP_SET' >> /etc/cron.daily/pvehost-backup
+echo 'find $BACKUP_PATH$BACKUP_FILE-* -mindepth 0 -maxdepth 0 -depth -mtime +$KEEP_DAYS -delete' >> /etc/cron.daily/pvehost-backup
 
 # Load into Proxmox Console
 ## Configure Host
