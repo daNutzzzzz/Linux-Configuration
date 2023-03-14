@@ -22,21 +22,21 @@ Echo 'killall -9 systemd-resolve' >> /etc/rc.local
 Echo 'killall -9 systemd-resolve' >> /etc/rc.local
 Echo 'killall -9 systemd-resolve' >> /etc/rc.local
 Echo 'killall -9 systemd-resolve' >> /etc/rc.local
-Echo 'sudo docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d pihole' >> /etc/rc.local
-Echo 'sudo docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d portainer' >> /etc/rc.local
-Echo 'sudo docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d ddns-updater' >> /etc/rc.local
-Echo 'sudo docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d smokeping' >> /etc/rc.local
-Echo 'sudo docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d alertmanager' >> /etc/rc.local
-Echo 'sudo docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d grafana' >> /etc/rc.local
-Echo 'sudo docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d librespeed' >> /etc/rc.local
-Echo '#sudo docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d teleport' >> /etc/rc.local
-Echo '#sudo docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d noip_renew' >> /etc/rc.local
-Echo 'sudo docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d wireguard' >> /etc/rc.local
-Echo '#sudo docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d unifi-controller' >> /etc/rc.local
-Echo 'sudo docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d watchtower' >> /etc/rc.local
-Echo 'sudo docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d rdb-ie' >> /etc/rc.local
-Echo 'sudo docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d noip_renew' >> /etc/rc.local
-Echo 'sudo docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d grafana' >> /etc/rc.local
+Echo 'docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d pihole' >> /etc/rc.local
+Echo 'docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d portainer' >> /etc/rc.local
+Echo 'docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d ddns-updater' >> /etc/rc.local
+Echo 'docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d smokeping' >> /etc/rc.local
+Echo 'docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d alertmanager' >> /etc/rc.local
+Echo 'docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d grafana' >> /etc/rc.local
+Echo 'docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d librespeed' >> /etc/rc.local
+Echo '#docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d teleport' >> /etc/rc.local
+Echo '#docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d noip_renew' >> /etc/rc.local
+Echo 'docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d wireguard' >> /etc/rc.local
+Echo '#docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d unifi-controller' >> /etc/rc.local
+Echo 'docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d watchtower' >> /etc/rc.local
+Echo 'docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d rdb-ie' >> /etc/rc.local
+Echo 'docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d noip_renew' >> /etc/rc.local
+Echo 'docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d grafana' >> /etc/rc.local
 
 
 #!/bin/sh
