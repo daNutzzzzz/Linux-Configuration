@@ -48,6 +48,7 @@ mount /dev/sdc1 /mnt/HDD1-1TB
 #get UUID of disk
 blkid
 
-
+# Record SupoerBlocks
+dumpe2fs /dev/sd** | grep -i superblock
 
 
