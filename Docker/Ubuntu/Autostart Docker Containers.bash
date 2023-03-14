@@ -22,21 +22,54 @@ Echo 'killall -9 systemd-resolve' >> /etc/rc.local
 Echo 'killall -9 systemd-resolve' >> /etc/rc.local
 Echo 'killall -9 systemd-resolve' >> /etc/rc.local
 Echo 'killall -9 systemd-resolve' >> /etc/rc.local
-Echo 'docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d pihole' >> /etc/rc.local
-Echo 'docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d portainer' >> /etc/rc.local
-Echo 'docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d ddns-updater' >> /etc/rc.local
-Echo 'docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d smokeping' >> /etc/rc.local
-Echo 'docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d alertmanager' >> /etc/rc.local
-Echo 'docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d grafana' >> /etc/rc.local
-Echo 'docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d librespeed' >> /etc/rc.local
-Echo '#docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d teleport' >> /etc/rc.local
-Echo '#docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d noip_renew' >> /etc/rc.local
-Echo 'docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d wireguard' >> /etc/rc.local
-Echo '#docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d unifi-controller' >> /etc/rc.local
-Echo 'docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d watchtower' >> /etc/rc.local
-Echo 'docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d rdb-ie' >> /etc/rc.local
-Echo 'docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d noip_renew' >> /etc/rc.local
-Echo 'docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d grafana' >> /etc/rc.local
+Echo 'sudo docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d pihole' >> /etc/rc.local
+Echo 'sudo docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d portainer' >> /etc/rc.local
+Echo 'sudo docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d ddns-updater' >> /etc/rc.local
+Echo 'sudo docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d smokeping' >> /etc/rc.local
+Echo 'sudo docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d alertmanager' >> /etc/rc.local
+Echo 'sudo docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d grafana' >> /etc/rc.local
+Echo 'sudo docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d librespeed' >> /etc/rc.local
+Echo '#sudo docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d teleport' >> /etc/rc.local
+Echo '#sudo docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d noip_renew' >> /etc/rc.local
+Echo 'sudo docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d wireguard' >> /etc/rc.local
+Echo '#sudo docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d unifi-controller' >> /etc/rc.local
+Echo 'sudo docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d watchtower' >> /etc/rc.local
+Echo 'sudo docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d rdb-ie' >> /etc/rc.local
+Echo 'sudo docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d noip_renew' >> /etc/rc.local
+Echo 'sudo docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d grafana' >> /etc/rc.local
+
+
+#!/bin/sh
+echo Docker script starts
+
+#Set PATH to Docker
+export PATH=$PATH:/usr/bin/docker
+
+for ((waitseconds=0; waitseconds<=300; waitseconds++)); do
+	(which docker  > /dev/null) && break || sleep 1
+done
+
+killall -9 systemd-resolve
+killall -9 systemd-resolve
+killall -9 systemd-resolve
+killall -9 systemd-resolve
+docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d pihole
+docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d portainer
+docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d ddns-updater
+docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d smokeping
+docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d alertmanager
+docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d grafana
+docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d librespeed
+#docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d teleport
+#docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d noip_renew
+docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d wireguard
+docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d rdb-ie
+#docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d unifi-controller
+docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d watchtower
+
+echo Docker script terminated
+exit 0
+
 
 
 ### Docker2
@@ -70,7 +103,7 @@ Echo 'docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d
 
 Echo '#!/bin/sh' >> /etc/rc.local
 Echo '#Set PATH to Docker' >> /etc/rc.local
-Echo 'export PATH=$PATH:/usr/bin/docker' >> /etc/rc.local
+Echo 'export PATH=$PATH:/share/CACHEDEV1_DATA/.qpkg/container-station/bin' >> /etc/rc.local
 Echo '' >> /etc/rc.local
 Echo 'for ((waitseconds=0; waitseconds<=300; waitseconds++)); do' >> /etc/rc.local
 Echo '    (which docker  > /dev/null) && break || sleep 1' >> /etc/rc.local
@@ -96,7 +129,7 @@ Echo 'docker-compose -f /share/Container/docker-compose/docker-compose.yml up -d
 
 Echo '#!/bin/sh' >> /etc/rc.local
 Echo '#Set PATH to Docker' >> /etc/rc.local
-Echo 'export PATH=$PATH:/usr/bin/docker' >> /etc/rc.local
+Echo 'export PATH=$PATH:/share/CACHEDEV1_DATA/.qpkg/container-station/bin' >> /etc/rc.local
 Echo '' >> /etc/rc.local
 Echo 'for ((waitseconds=0; waitseconds<=300; waitseconds++)); do' >> /etc/rc.local
 Echo '    (which docker  > /dev/null) && break || sleep 1' >> /etc/rc.local
