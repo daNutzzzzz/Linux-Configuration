@@ -2,14 +2,15 @@
 passwd root
 
 # Disable Swapfile (https://blog.lbdg.me/proxmox-best-performance-disable-swappiness/)
-# Check the current value
+## Check the current value
 cat /proc/sys/vm/swappiness
-
-# Define the new one
+## Define the new one
 sysctl vm.swappiness=0
-
-# Disable SWAP, it'll take some times to clean the SWAP area
+## Disable SWAP, it'll take some times to clean the SWAP area
 swapoff -a
+
+# Configure Proxmox PVE Host Config Backup Script
+ - See other file
 
 # Load into Proxmox Console
 ## Configure Host
@@ -18,8 +19,8 @@ swapoff -a
 - Go to Host > Disks > LVM . Confirm all disks are present
 - Go to DataCenter > Storage > Add LVM > ID: SSD1 > Volume Group: Select Disk > Click Add
 - Go to DataCenter > Storage > Add LVM > ID: HDD1-1TB > Volume Group: Select Disk > Click Add
-## Create Donor VM
-###https://manjaro.site/how-to-create-a-new-virtual-machine-from-an-existing-disk-image-in-proxmox/#:~:text=Steps%20to%20Create%20a%20New%20Virtual%20Machine%20from,...%203%20Step%203.%20Change%20the%20VM%20configuration
+## Create & Configure Donor VM
+### https://manjaro.site/how-to-create-a-new-virtual-machine-from-an-existing-disk-image-in-proxmox/#:~:text=Steps%20to%20Create%20a%20New%20Virtual%20Machine%20from,...%203%20Step%203.%20Change%20the%20VM%20configuration
 - Right Click Host > Create VM > Name: Docker-01 > ID: 100 > OS: None > Disks: Local-LVM - 1Gb > CPU - 2 Cores > MEM: 6Gb > Network: vmbr1
 - Click VM Docker-02 > Hardware > Disk local-lvm 1G > Remove
 - SSH to /etc/pve/qemu-server/
@@ -31,6 +32,8 @@ scsi2: HDD1-1TB:vm-100-disk-0,size=912.68G
 - Click VM Docker-02 > Options > Boot Order: scsi0
 
 # Start VM
+
+
 
 
 
