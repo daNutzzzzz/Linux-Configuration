@@ -77,10 +77,10 @@ for ((waitseconds=0; waitseconds<=300; waitseconds++)); do
         (which docker  > /dev/null) && break || sleep 1
 done
 
-killall -9 systemd-resolve
-killall -9 systemd-resolve
-killall -9 systemd-resolve
-killall -9 systemd-resolve
+killall -9 systemd-resolved
+killall -9 systemd-resolved
+killall -9 systemd-resolved
+killall -9 systemd-resolved
 docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d pihole
 docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d portainer
 docker compose -f /mnt/ssd1/docker/docker-compose/docker-compose.yml up -d ddns-updater
