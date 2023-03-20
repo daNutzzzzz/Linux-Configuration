@@ -1,0 +1,70 @@
+
+
+# Cron Jobs
+## Nexus Media
+0 23 * * 1-6 /etc/init.d/antivirus.sh scan 1
+0 23 * * 7 /etc/init.d/antivirus.sh scan 2
+
+## Nexus App
+0 23 * * 1-6 /etc/init.d/antivirus.sh scan 1
+0 23 * * 7 /etc/init.d/antivirus.sh scan 2
+
+# DAILY
+# Folders
+## Nexus Media
+/Container
+/Data
+/Public
+/Web
+/Homes
+/Multimedia
+/ISO's
+/Images
+
+## Nexus App
+/Container
+/Virtual Servers
+/Public
+
+# Scan Type & Filters
+Quick Scan (Only Scan the following)
+*.386;*.bat;*.bin;*.blf;*.bll;*.bmp;*.bmw;*.boo;*.chm;*.cih;*.cla;*.class;*.cmd;*.cnm;*.com;*.cpl;*.cxq;*.cyw;*.dbd;*.dev;*.dlb;*.dlb;*.dll;*.dllx;*.drv;*.eml;*.exe;*.ezt;*.gif;*.hlp;*.hsq;*.hta;*.ini;*.iva;*.iws;*.jpeg;*.jpg;*.js;*.lnk;*.lok;*.mxq;*.oar;*.ocx;*.osa;*.ozd;*.pcx;*.pdf;*.pgm;*.php;*.php2;*.php3;*.php4;*.php5;*.pid;*.pif;*.plc;*.png;*.pr;*.qit;*.scr;*.scr;*.shs;*.ska;*.smm;*.ssy;*.swf;*.sys;*.tif;*.tps;*.vb;*.vba;*.vbe;*.vbs;*.vbx;*.vexe;*.vsd;*.vxd;*.wmf;*.ws;*.wsc;*.wsf;*.wsh;*.wss;*.xlm;*.xlr;*.xlv;*.xml;*.xnt;*.zix;*.zvz
+Exclude:
+*.mkv,*.rar;*.zip
+
+## Nexus App
+Quick Scan (Only Scan the following)
+*.386;*.bat;*.bin;*.blf;*.bll;*.bmp;*.bmw;*.boo;*.chm;*.cih;*.cla;*.class;*.cmd;*.cnm;*.com;*.cpl;*.cxq;*.cyw;*.dbd;*.dev;*.dlb;*.dlb;*.dll;*.dllx;*.drv;*.eml;*.exe;*.ezt;*.gif;*.hlp;*.hsq;*.hta;*.ini;*.iva;*.iws;*.jpeg;*.jpg;*.js;*.lnk;*.lok;*.mxq;*.oar;*.ocx;*.osa;*.ozd;*.pcx;*.pdf;*.pgm;*.php;*.php2;*.php3;*.php4;*.php5;*.pid;*.pif;*.plc;*.png;*.pr;*.qit;*.scr;*.scr;*.shs;*.ska;*.smm;*.ssy;*.swf;*.sys;*.tif;*.tps;*.vb;*.vba;*.vbe;*.vbs;*.vbx;*.vexe;*.vsd;*.vxd;*.wmf;*.ws;*.wsc;*.wsf;*.wsh;*.wss;*.xlm;*.xlr;*.xlv;*.xml;*.xnt;*.zix;*.zvz
+Exclude:
+*.mkv,*.rar;*.zip
+
+
+# Weekly
+# Folders
+## Nexus Media
+/Container
+/Data
+/Public
+/Web
+/Homes
+/Multimedia
+/ISO's
+/Images
+
+## Nexus App
+/Container
+/Virtual Servers
+/Public
+
+# Scan Type & Filters
+## Nexus Media
+Quick Scan (Only Scan the following)
+*.386;*.bat;*.bin;*.blf;*.bll;*.bmp;*.bmw;*.boo;*.chm;*.cih;*.cla;*.class;*.cmd;*.cnm;*.com;*.cpl;*.cxq;*.cyw;*.dbd;*.dev;*.dlb;*.dlb;*.dll;*.dllx;*.drv;*.eml;*.exe;*.ezt;*.gif;*.hlp;*.hsq;*.hta;*.ini;*.iva;*.iws;*.jpeg;*.jpg;*.js;*.lnk;*.lok;*.mxq;*.oar;*.ocx;*.osa;*.ozd;*.pcx;*.pdf;*.pgm;*.php;*.php2;*.php3;*.php4;*.php5;*.pid;*.pif;*.plc;*.png;*.pr;*.qit;*.scr;*.scr;*.shs;*.ska;*.smm;*.ssy;*.swf;*.sys;*.tif;*.tps;*.vb;*.vba;*.vbe;*.vbs;*.vbx;*.vexe;*.vsd;*.vxd;*.wmf;*.ws;*.wsc;*.wsf;*.wsh;*.wss;*.xlm;*.xlr;*.xlv;*.xml;*.xnt;*.zix;*.zvz
+Exclude:
+*.mkv,*.rar;*.zip
+
+## Nexus App
+Scan all files
+
+Exclude:
+*.mkv,*.rar;*.zip
