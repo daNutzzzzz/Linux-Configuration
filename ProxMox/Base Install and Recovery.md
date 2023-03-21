@@ -1,3 +1,6 @@
+# Hostname 
+proxmox-01
+
 # Change password if required
 passwd root
 
