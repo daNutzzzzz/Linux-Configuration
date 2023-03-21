@@ -3,7 +3,7 @@
 ## Create a JSON file
 sudo nano /etc/docker/daemon.json
 
-## Copy Contenetins into file
+## Copy Contents into file
 {
 "data-root": "/mnt/ssd1/docker/docker-images"
 }
