@@ -15,7 +15,7 @@ sysctl vm.swappiness=0
 swapoff -a
 
 # Storage
-# Prerpare Storage: - https://www.hostfav.com/blog/index.php/2017/02/01/add-a-new-physical-hard-drive-to-proxmox-ve-4x-5x/    Use this Guide!
+# Prepare Storage: - https://www.hostfav.com/blog/index.php/2017/02/01/add-a-new-physical-hard-drive-to-proxmox-ve-4x-5x/ | Use this Guide!
 
 # Remove Proxmox Subscription Notice
 sed -Ezi.bak "s/(Ext.Msg.show\(\{\s+title: gettext\('No valid sub)/void\(\{ \/\/\1/g" /usr/share/javascript/proxmox-widget-toolkit/proxmoxlib.js && systemctl restart pveproxy.service
@@ -96,9 +96,10 @@ dumpe2fs /dev/sd** | grep -i superblock
 fdisk -l (to find the right device (usually /dev/sd*))
 
 or
-
+# Clean the drive
 wipefs --all /dev/sd*
 
+# Clean and Create Partitions - https://www.hostfav.com/blog/index.php/2017/02/01/add-a-new-physical-hard-drive-to-proxmox-ve-4x-5x/
 fdisk /dev/sd* (to edit the disk)
 
 	choose d to delete existing partition (you might need to do it several times, until there is no partition anymore)
@@ -106,8 +107,11 @@ fdisk /dev/sd* (to edit the disk)
 
 fdisk /dev/sd* (to edit the disk again)
 
-	g to create the new partition
+	n to create the new partition
 	w to write it
+
+
+
 
 # Create FS - https://nubcakes.net/index.php/2019/03/05/how-to-add-storage-to-proxmox/
 mkfs.ext4 -L adisk /dev/sd*
