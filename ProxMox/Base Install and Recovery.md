@@ -30,10 +30,19 @@ BACKUP_PATH="/var/tmp/"
 BACKUP_FILE="pve-host"
 KEEP_DAYS=7
 PVE_BACKUP_SET="/etc/pve/ /etc/lvm/ /etc/modprobe.d/ /etc/network/interfaces /etc/vzdump.conf /etc/sysctl.conf /etc/resolv.conf /etc/ksmtuned.conf /etc/hosts /etc/hostname /etc/cron* /etc/aliases"
-PVE_CUSTOM_BACKUP_SET="/etc/apcupsd/ /etc/multipath/ /etc/multipath.conf"
+PVE_CUSTOM_BACKUP_SET=""
     
 tar -czf $BACKUP_PATH$BACKUP_FILE-$(date +%Y_%m_%d-%H_%M_%S).tar.gz --absolute-names $PVE_BACKUP_SET $PVE_CUSTOM_BACKUP_SET
-find $BACKUP_PATH$BACKUP_FILE-* -mindepth 0 -maxdepth 0 -depth -mtime +$KEEP_DAYS -delete" | tee /etc/cron.daily/pvehost-backup > /dev/null
+find $BACKUP_PATH$BACKUP_FILE-* -mindepth 0 -maxdepth 0 -depth -mtime +$KEEP_DAYS -delete
+
+#Proxmox 1
+curl https://hc-ping.com/9ff4f635-82fa-4313-838d-ad57096f1bb3
+
+#Proxmox 2
+curl https://hc-ping.com/648a47f4-e0b2-4355-ba67-070f3edf808d
+
+#Proxmox 3
+curl https://hc-ping.com/1d044eb7-0372-44e1-873d-ca1cbe5a6f33" | tee /etc/cron.daily/pvehost-backup > /dev/null
 
 # How to Update Proxmox Without Subscription
 cd /etc/apt/sources.list.d/
