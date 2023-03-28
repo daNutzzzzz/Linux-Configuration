@@ -9,12 +9,14 @@ To create backup script that will be executed every day we can create backup scr
 
 	touch /etc/cron.daily/pvehost-backup
 	chmod 755 /etc/cron.daily/pvehost-backup
+      mkdir /home/pve-host-01/
+      nano /etc/cron.daily/pvehost-backup
 
 Copy and paste following script into the created file (e.g. using `vim.tiny`):
 
 	#!/bin/sh
-	BACKUP_PATH="/var/tmp/"
-	BACKUP_FILE="pve-host"
+	BACKUP_PATH="/home/pve-host-01/"
+	BACKUP_FILE="pve-host-01"
 	KEEP_DAYS=7
 	PVE_BACKUP_SET="/etc/pve/ /etc/lvm/ /etc/modprobe.d/ /etc/network/interfaces /etc/vzdump.conf /etc/sysctl.conf /etc/resolv.conf /etc/ksmtuned.conf /etc/hosts /etc/hostname /etc/cron* /etc/aliases"
 	PVE_CUSTOM_BACKUP_SET="/etc/apcupsd/ /etc/multipath/ /etc/multipath.conf"
