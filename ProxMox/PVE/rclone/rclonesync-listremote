@@ -1,0 +1,2 @@
+cd /home/rclone/rclone/  && \
+./rclone lsd OneDriveSync:

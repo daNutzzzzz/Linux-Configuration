@@ -1,0 +1,2 @@
+rclonesync
+0 0 * * * /home/rclone/rclonesync > /dev/null && curl https://******

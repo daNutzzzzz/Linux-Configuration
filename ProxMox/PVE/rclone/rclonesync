@@ -1,0 +1,3 @@
+cd /home/rclone/rclone/  && \
+./rclone copy "/home" "OneDriveSync:Data-Backups/PVE-Backups/PVE-03" --update --progress --verbose --transfers 30 --checkers 8 --contimeout 60s --timeout 300s --retries 3 --low-level-retries 10 --stats 1s --stats-file-name-length 0
+./rclone copy "/etc/cron.daily" "OneDriveSync:Data-Backups/PVE-Backups/PVE-03/cron.daily" --update --progress --verbose --transfers 30 --checkers 8 --contimeout 60s --timeout 300s --retries 3 --low-level-retries 10 --stats 1s --stats-file-name-length 0

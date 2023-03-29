@@ -47,6 +47,9 @@ curl https://hc-ping.com/648a47f4-e0b2-4355-ba67-070f3edf808d
 curl https://hc-ping.com/1d044eb7-0372-44e1-873d-ca1cbe5a6f33" | tee /etc/cron.daily/pvehost-backup > /dev/null
 
 # Implement rclone host backup copy to OD
+/home/rclone
+## Add cron task
+## Copy "rclone.conf" from another working location as it contains API keys to /home/rclone/rclone
 
 # How to Update Proxmox Without Subscription
 cd /etc/apt/sources.list.d/
