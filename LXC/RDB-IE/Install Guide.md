@@ -1,6 +1,11 @@
 # Install Guide
 https://docs.discord.red/en/stable/install_guides/ubuntu-non-lts.html
 
+# Enable SSH access - https://www.cyberciti.biz/faq/linux-unix-openssh-block-root-user/#:~:text=To%20disable%20SSH%20logins%20for%20the%20root%20account%3A,server%20in%20order%20to%20deny%20root%20log%20in
+#nano /etc/ssh/sshd_config
+echo \
+"PermitRootLogin yes" | tee /etc/ssh/sshd_config >> /dev/null 
+
 # Acces RBD IE Instance
 pyenv shell rdb-ie-01
 
