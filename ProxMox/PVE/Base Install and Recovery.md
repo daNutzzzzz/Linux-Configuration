@@ -88,6 +88,7 @@ apt-get dist-upgrade
 ## - Click VM Docker-02 > Hardware > Disk local-lvm 1G > Remove
 ## - SSH to /etc/pve/qemu-server/
 cd /etc/pve/qemu-server/
+cd /etc/pve/lxc
 ## - nano VM file, likely "100.conf"
 ## - Add:
 ## scsi0: SSD1:vm-100-disk-0,size=21.47G,ssd=1
