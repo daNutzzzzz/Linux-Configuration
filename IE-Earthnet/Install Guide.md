@@ -24,6 +24,15 @@ Install `rust` and `cargo`: go to [rustup.rs](https://rustup.rs) and follow the 
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ```
 
+Downgrade Rust to version [1.46.0](https://github.com/rust-lang/rust/releases/tag/1.46.0)
+```
+rustup default 1.46.0
+```
+or if you just want to download it, instead of using it as a default
+```
+rustup install 1.46.0
+```
+
 Clone IE-Earthnet Code
 ```
 git clone https://github.com/InsideEarth2150/EarthNet-IEO.git
@@ -44,14 +53,47 @@ cargo run
 By default, IE::Net listens on all addresses at port 17171 (default EarthNet port).
 You can change the listen address and port by passing a command line argument:
 ```
-cargo run -- --bind 192.168.1.1:12345
+cargo run -- --bind 10.21.0.1:17171
 ```
 
+## Autostart on server load
 
+```
+touch /etc/network/Earthnet
+chmod +x /etc/network/Earthnet
+nano /etc/network/Earthnet
+```
+insert into /etc/network/Earthnet
+```
+#!/bin/sh
 
+cd / \
+cd /etc/ie-earthnet/ \
+cargo run -- --bind 10.21.0.1:17171 &> /etc/ie-earthnet/logs/server.log
+```
 
+# Check its running
+```
+ps aux | grep "Earthnet"
+ps aux | grep "ie_net"
+```
 
-## Knowen Issues
+# to kill
+```
+pkill ie_net
+```
+
+## Cookbooks
+* [Rust Cookbook - GitHub Pages](https://rust-lang-nursery.github.io/rust-cookbook/)
+* [The Cargo Book - Rust](https://doc.rust-lang.org/cargo/commands/cargo-run.html)
+
+## Misc
+* To unistall rust
+```
+rustup self uninstall
+```
+
+## Known Issues
 
 **Error - Compiling arrayvec v0.5.1 # https://github.com/rust-lang/rust/issues/81654
 error[E0308]: mismatched types
