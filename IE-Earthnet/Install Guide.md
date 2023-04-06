@@ -87,6 +87,12 @@ pkill ie_net
 * [Rust Cookbook - GitHub Pages](https://rust-lang-nursery.github.io/rust-cookbook/)
 * [The Cargo Book - Rust](https://doc.rust-lang.org/cargo/commands/cargo-run.html)
 
+## Recompile IE Net
+* rename target folder and then cargo run again
+```
+mv target/ targetBU/
+```
+
 ## Misc
 * To unistall rust
 ```
