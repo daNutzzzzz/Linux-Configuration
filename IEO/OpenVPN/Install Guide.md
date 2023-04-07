@@ -36,12 +36,12 @@ iptables-save > /etc/network/iptables.orig
 sudo bash -c "ufw -f reset && iptables -F && iptables -X && ufw allow 22/tcp && ufw allow 2100/udp && ufw -f enable"
 
 # add custome iptables
-iptables -A FORWARD -i tun0 -p udp -m multiport --dports 6073,2300:2400,47624 -s 10.21.00.0/24 -d 10.21.00.0/24 -j ACCEPT
-iptables -A FORWARD -i tun0 -p tcp -m multiport --dports 6073,2300:2400,47624 -s 10.21.00.0/24 -d 10.21.00.0/24 -j ACCEPT
-iptables -A FORWARD -i tun0 -p udp -m multiport --sports 6073,2300:2400,47624 -s 10.21.00.0/24 -d 10.21.00.0/24 -j ACCEPT
-iptables -A FORWARD -i tun0 -p tcp -m multiport --sports 6073,2300:2400,47624 -s 10.21.00.0/24 -d 10.21.00.0/24 -j ACCEPT
-iptables -A FORWARD -i tun0 -p icmp -s 10.21.00.0/24 -d 10.21.00.0/24 -j ACCEPT
-iptables -A FORWARD -i tun0 -s 10.21.00.0/24 -d 10.21.00.0/24 -j DROP
+iptables -A FORWARD -i tun0 -p udp -m multiport --dports 6073,2300:2400,47624 -s 10.21.0.0/24 -d 10.21.0.0/24 -j ACCEPT
+iptables -A FORWARD -i tun0 -p tcp -m multiport --dports 6073,2300:2400,47624 -s 10.21.0.0/24 -d 10.21.0.0/24 -j ACCEPT
+iptables -A FORWARD -i tun0 -p udp -m multiport --sports 6073,2300:2400,47624 -s 10.21.0.0/24 -d 10.21.0.0/24 -j ACCEPT
+iptables -A FORWARD -i tun0 -p tcp -m multiport --sports 6073,2300:2400,47624 -s 10.21.0.0/24 -d 10.21.0.0/24 -j ACCEPT
+iptables -A FORWARD -i tun0 -p icmp -s 10.21.0.0/24 -d 10.21.0.0/24 -j ACCEPT
+iptables -A FORWARD -i tun0 -s 10.21.0.0/24 -d 10.21.0.0/24 -j DROP
 iptables -A FORWARD -i tun0 -s 0.0.0.0/0 -d 0.0.0.0/0 -j DROP
 
 # save iptables
@@ -146,7 +146,7 @@ auth SHA512
 cipher AES-256-GCM
 tls-version-min 1.2
 
-server 10.21.00.0 255.255.255.0
+server 10.21.0.0 255.255.255.0
 ifconfig-pool-persist ipp.txt
 keepalive 10 120
 user nobody
@@ -162,7 +162,7 @@ explicit-exit-notify 1
 ### Override the Client default gateway by using 0.0.0.0/1 and
 ### 128.0.0.0/1 rather than 0.0.0.0/0. This has the benefit of
 ### overriding but not wiping out the original default gateway.
-### route 10.21.00.0 255.255.255.0
+### route 10.21.0.0 255.255.255.0
 
 ### Logging
 status openvpn-E2160-status.log
@@ -179,7 +179,7 @@ topology subnet
 push "block-outside-dns"
 
 ### Push Configurations Below
-### push "route 10.21.00.0 255.255.255.0"
+### push "route 10.21.0.0 255.255.255.0"
 ### push "dhcp-option DNS 0.0.0.0"
 ### push "dhcp-option DNS 0.0.0.0"
 ### push "dhcp-option DNS 9.9.9.9"
@@ -200,7 +200,7 @@ remote-cert-tls server
 auth SHA512
 cipher AES-256-GCM
 route-nopull
-route 10.21.00.0 255.255.255.0
+route 10.21.0.0 255.255.255.0
 ignore-unknown-option block-outside-dns
 explicit-exit-notify 1
 verb 3
