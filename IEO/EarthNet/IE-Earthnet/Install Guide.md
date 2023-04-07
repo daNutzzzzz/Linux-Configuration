@@ -22,7 +22,10 @@
 Install `rust` and `cargo`: go to [rustup.rs](https://rustup.rs) and follow the instructions.
 ```
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+> 1
 ```
+
+reload ssh session
 
 Downgrade Rust to version [1.46.0](https://github.com/rust-lang/rust/releases/tag/1.46.0)
 ```
@@ -35,6 +38,7 @@ rustup install 1.46.0
 
 Clone IE-Earthnet Code
 ```
+cd /etc
 git clone https://github.com/InsideEarth2150/EarthNet-IEO.git
 ```
 

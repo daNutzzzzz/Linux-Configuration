@@ -17,6 +17,18 @@ https://pve.proxmox.com/wiki/OpenVPN_in_LXC
 
 # Following Config for VPS hosted
 
+# OpenVPN install Guide
+apt update
+apt dist-upgrade
+apt install openvpn git
+
+git clone https://github.com/Nyr/openvpn-install
+cd openvpn-install
+bash openvpn-install.sh
+> TCP
+> 2100
+> EarthDevClient
+
 # save original iptables
 iptables-save > /etc/network/iptables.orig
 
