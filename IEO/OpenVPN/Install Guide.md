@@ -33,7 +33,7 @@ bash openvpn-install.sh
 iptables-save > /etc/network/iptables.orig
 
 # Reset iptables
-sudo bash -c "ufw -f reset && iptables -F && iptables -X && ufw allow 22/tcp && ufw allow 2100/udp && ufw -f enable"
+sudo bash -c "ufw -f reset && iptables -F && iptables -X && ufw allow 22/tcp && ufw allow 2100/udp &&  ufw allow 17171/tcp &&ufw -f enable"
 
 # add custome iptables
 iptables -A FORWARD -i tun0 -p udp -m multiport --dports 6073,2300:2400,47624 -s 10.21.0.0/24 -d 10.21.0.0/24 -j ACCEPT
@@ -43,6 +43,12 @@ iptables -A FORWARD -i tun0 -p tcp -m multiport --sports 6073,2300:2400,47624 -s
 iptables -A FORWARD -i tun0 -p icmp -s 10.21.0.0/24 -d 10.21.0.0/24 -j ACCEPT
 iptables -A FORWARD -i tun0 -s 10.21.0.0/24 -d 10.21.0.0/24 -j DROP
 iptables -A FORWARD -i tun0 -s 0.0.0.0/0 -d 0.0.0.0/0 -j DROP
+
+# Redirecting network traffic to a new IP using IPtables - https://www.debuntu.org/how-to-redirecting-network-traffic-to-a-new-ip-using-iptables/
+iptables -t nat -A PREROUTING -p tcp --dport 17171 -j DNAT --to-destination 10.21.0.1:17171
+
+# finally, we ask IPtables to masquerade:
+sudo iptables -t nat -A POSTROUTING -j MASQUERADE
 
 # save iptables
 iptables-save
@@ -91,6 +97,9 @@ iptables -A FORWARD -i tun0 -p tcp -m multiport --sports 6073,2300:2400,47624 -s
 iptables -A FORWARD -i tun0 -p icmp -s 10.21.00.0/24 -d 10.21.00.0/24 -j ACCEPT
 iptables -A FORWARD -i tun0 -s 10.21.00.0/24 -d 10.21.00.0/24 -j DROP
 iptables -A FORWARD -i tun0 -s 0.0.0.0/0 -d 0.0.0.0/0 -j DROP
+
+# Redirecting network traffic to a new IP using IPtables - https://www.debuntu.org/how-to-redirecting-network-traffic-to-a-new-ip-using-iptables/
+iptables -t nat -A PREROUTING -p tcp --dport 17171 -j DNAT --to-destination 10.21.0.1:17171
 
 iptables-save
 iptables-save > /etc/network/iptables
