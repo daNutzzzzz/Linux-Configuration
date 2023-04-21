@@ -45,7 +45,8 @@ iptables -A FORWARD -i tun0 -s 10.21.0.0/24 -d 10.21.0.0/24 -j DROP
 iptables -A FORWARD -i tun0 -s 0.0.0.0/0 -d 0.0.0.0/0 -j DROP
 
 # Redirecting network traffic to a new IP using IPtables - https://www.debuntu.org/how-to-redirecting-network-traffic-to-a-new-ip-using-iptables/
-iptables -t nat -A PREROUTING -p tcp --dport 17171 -j DNAT --to-destination 10.21.0.1:17171
+# iptables -t nat -A PREROUTING -p tcp --dport 17171 -j DNAT --to-destination 10.21.0.1:17171
+iptables -t nat -A PREROUTING -p tcp --dport 12100 -j DNAT --to-destination 10.21.0.1:17171
 
 # finally, we ask IPtables to masquerade:
 # sudo iptables -t nat -A POSTROUTING -j MASQUERADE << KILLS LOBBIES
