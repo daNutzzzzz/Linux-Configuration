@@ -50,6 +50,15 @@ systemctl enable red@rdbbg01
 systemctl stop red@rdie01
 systemctl disable red@rdbbg01
 
+
+
+Known Errors:
+
+# [red] Bot doesn't have any owner set!
+a) pass --team-members-are-owners when launching Red - in this case Red will treat all members of the bot application's team as owners
+b) set owner manually with redbot --edit <instance_name>
+c) pass owner ID(s) when launching Red with --owner (and --co-owner if you need more than one) flag
+
 ============
 Description=%I rdbbg01
 After=multi-user.target

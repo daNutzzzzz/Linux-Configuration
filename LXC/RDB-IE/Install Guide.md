@@ -30,6 +30,15 @@ chown -R docker /mnt/ssd1/ && sudo chgrp -R docker /mnt/ssd1/
 #set bot to autostart
 https://docs.discord.red/en/stable/autostart_systemd.html
 
+
+
+Known Errors:
+
+# [red] Bot doesn't have any owner set!
+a) pass --team-members-are-owners when launching Red - in this case Red will treat all members of the bot application's team as owners
+b) set owner manually with redbot --edit <instance_name>
+c) pass owner ID(s) when launching Red with --owner (and --co-owner if you need more than one) flag
+
 ============
 Description=%I rdbie01
 After=multi-user.target
