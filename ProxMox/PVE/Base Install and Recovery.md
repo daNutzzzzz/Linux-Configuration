@@ -21,21 +21,13 @@ swapoff -a
 sed -Ezi.bak "s/(Ext.Msg.show\(\{\s+title: gettext\('No valid sub)/void\(\{ \/\/\1/g" /usr/share/javascript/proxmox-widget-toolkit/proxmoxlib.js && systemctl restart pveproxy.service
 
 # Create Host Config Backup Script
-touch /etc/cron.daily/pvehost-backup
-chmod 755 /etc/cron.daily/pvehost-backup
+touch /etc/cron.daily/pve_config_backup.sh
+chmod 755 /etc/cron.daily/pve_config_backup.sh
 mkdir /home/pve-host-01/
-nano /etc/cron.daily/pvehost-backup
+nano /etc/cron.daily/pve_config_backup.sh
 
-echo \
-"#!/bin/sh
-BACKUP_PATH="/home/pve-host-01/"
-BACKUP_FILE="pve-host-01"
-KEEP_DAYS=7
-PVE_BACKUP_SET="/etc/pve/ /etc/lvm/ /etc/modprobe.d/ /etc/network/interfaces /etc/vzdump.conf /etc/sysctl.conf /etc/resolv.conf /etc/ksmtuned.conf /etc/hosts /etc/hostname /etc/cron* /etc/aliases"
-PVE_CUSTOM_BACKUP_SET=""
-    
-tar -czf $BACKUP_PATH$BACKUP_FILE-$(date +%Y_%m_%d-%H_%M_%S).tar.gz --absolute-names $PVE_BACKUP_SET $PVE_CUSTOM_BACKUP_SET
-find $BACKUP_PATH$BACKUP_FILE-* -mindepth 0 -maxdepth 0 -depth -mtime +$KEEP_DAYS -delete
+## script
+https://raw.githubusercontent.com/daNutzzzzz/proxmox-stuff/master/prox_config_backup.sh
 
 #Proxmox 1
 curl https://hc-ping.com/9ff4f635-82fa-4313-838d-ad57096f1bb3
