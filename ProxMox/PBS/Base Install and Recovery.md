@@ -37,14 +37,8 @@ PVE_CUSTOM_BACKUP_SET=""
 tar -czf $BACKUP_PATH$BACKUP_FILE-$(date +%Y_%m_%d-%H_%M_%S).tar.gz --absolute-names $PVE_BACKUP_SET $PVE_CUSTOM_BACKUP_SET
 find $BACKUP_PATH$BACKUP_FILE-* -mindepth 0 -maxdepth 0 -depth -mtime +$KEEP_DAYS -delete
 
-#Proxmox 1
-curl https://hc-ping.com/9ff4f635-82fa-4313-838d-ad57096f1bb3
-
-#Proxmox 2
-curl https://hc-ping.com/648a47f4-e0b2-4355-ba67-070f3edf808d
-
-#Proxmox 3
-curl https://hc-ping.com/1d044eb7-0372-44e1-873d-ca1cbe5a6f33" | tee /etc/cron.daily/pvehost-backup > /dev/null
+#PBS 1
+curl https://hc-ping.com/
 
 
 # Implement rclone host backup copy to OD
@@ -58,20 +52,22 @@ echo \
 "deb http://ftp.debian.org/debian bullseye main contrib
 deb http://ftp.debian.org/debian bullseye-updates main contrib
 
-# PBS pbs-no-subscription repository provided by proxmox.com,
+# Proxmox Backup Server pbs-no-subscription repository provided by proxmox.com,
 # NOT recommended for production use
 deb http://download.proxmox.com/debian/pbs bullseye pbs-no-subscription
 
 # security updates
 deb http://security.debian.org/debian-security bullseye-security main contrib" | tee sources.list > /dev/null
 
-cd /etc/apt//sources.list.d/
-echo "# deb https://enterprise.proxmox.com/debian/pve bullseye pve-enterprise" > pve-enterprise.list
+cd /etc/apt/sources.list.d/
 echo "# deb https://enterprise.proxmox.com/debian/pbs bullseye pve-enterprise" > pbs-enterprise.list 
+
 # Update Repo List
 apt-get update
+
 # And when that’s done, run software upgrades!
 apt-get dist-upgrade
+
 # Note: Always run dist-upgrade, not just “apt-get upgrade.” Dist-upgrade ensures that all the packages and their dependencies are updated. If you just run “apt-get upgrade” things may break. 
 
 ==========================
