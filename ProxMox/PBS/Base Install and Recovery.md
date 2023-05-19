@@ -21,10 +21,10 @@ swapoff -a
 sed -Ezi.bak "s/(Ext.Msg.show\(\{\s+title: gettext\('No valid sub)/void\(\{ \/\/\1/g" /usr/share/javascript/proxmox-widget-toolkit/proxmoxlib.js && systemctl restart pveproxy.service
 
 # Create Host Config Backup Script
-touch /etc/cron.daily/pbshost-backup
-chmod 755 /etc/cron.daily/pbshost-backup
+touch /etc/cron.daily/pbs_config_backup
+chmod 755 /etc/cron.daily/pbs_config_backup
 mkdir /home/pbs-host-01/
-nano /etc/cron.daily/pbshost-backup
+nano /etc/cron.daily/pbs_config_backup
 
 echo \
 "#!/bin/sh
