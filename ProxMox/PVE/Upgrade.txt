@@ -1,0 +1,20 @@
+# Shutdown running VM's / Containers
+
+# remove non used repo file
+rm /etc/apt/sources.list.d/pve-enterprise.list
+
+# update repos - https://unix.stackexchange.com/questions/407328/what-is-the-benefit-of-etc-apt-sources-list-d-over-etc-apt-sources-list
+sed -i 's/bullseye/bookworm/g' /etc/apt/sources.list
+sed -i 's/bullseye/bookworm/g' /etc/apt/sources.list.d/netdata-edge.list
+sed -i 's/bullseye/bookworm/g' /etc/apt/sources.list.d/pve-no-subscription.list
+sed -i -e 's/bullseye/bookworm/g' /etc/apt/sources.list.d/pve-install-repo.list
+
+apt update
+apt dist-upgrade
+
+# review post update
+cat /etc/apt/sources.list
+cat /etc/apt/sources.list.d/netdata-edge.list
+cat /etc/apt/sources.list.d/pve-enterprise.list
+cat /etc/apt/sources.list.d/pve-no-subscription.list
+cat /etc/apt/sources.list.d/pve-install-repo.list
