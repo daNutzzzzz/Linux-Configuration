@@ -10,7 +10,7 @@ sed -i 's/bullseye/bookworm/g' /etc/apt/sources.list.d/pve-no-subscription.list
 sed -i -e 's/bullseye/bookworm/g' /etc/apt/sources.list.d/pve-install-repo.list
 
 apt update
-apt dist-upgrade
+apt dist-upgrade -y
 
 # review post update
 cat /etc/apt/sources.list
