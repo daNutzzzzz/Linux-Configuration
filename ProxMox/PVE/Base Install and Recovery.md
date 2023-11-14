@@ -140,4 +140,9 @@ blkid
 # Record SupoerBlocks
 dumpe2fs /dev/sd** | grep -i superblock
 
+# Docker
+# add disk to fstab
+nano /etc/fstab
+
+
 
