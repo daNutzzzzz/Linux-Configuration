@@ -43,20 +43,21 @@ curl https://hc-ping.com/1d044eb7-0372-44e1-873d-ca1cbe5a6f33" | tee /etc/cron.d
 ## Add cron task
 ## Copy "rclone.conf" from another working location as it contains API keys to /home/rclone/rclone
 
-# How to Update Proxmox Without Subscription
+# How to Update Proxmox Without Subscription - https://pve.proxmox.com/wiki/Package_Repositories#sysadmin_no_subscription_repo
 cd /etc/apt/sources.list.d/
-cp pve-enterprise.list pve-no-subscription.list
-echo "# deb https://enterprise.proxmox.com/debian/pve bullseye pve-enterprise" > pve-enterprise.list
-echo \
-"deb http://ftp.debian.org/debian bullseye main contrib
-deb http://ftp.debian.org/debian bullseye-updates main contrib
+#cp pve-enterprise.list pve-no-subscription.list
+rm pve-enterprise.list
+#echo "# deb https://enterprise.proxmox.com/debian/pve bookworm pve-enterprise" > pve-enterprise.list
+#echo \
+#"deb http://ftp.debian.org/debian bookworm main contrib
+#deb http://ftp.debian.org/debian bookworm-updates main contrib
 
 # PVE pve-no-subscription repository provided by proxmox.com,
 # NOT recommended for production use
-deb http://download.proxmox.com/debian/pve bullseye pve-no-subscription
+echo "deb http://download.proxmox.com/debian/pve bookworm pve-no-subscription" > pve-no-subscription.list
 
 # security updates
-deb http://security.debian.org/debian-security bullseye-security main contrib" | tee pve-no-subscription.list > /dev/null
+deb http://security.debian.org/debian-security bookworm-security main contrib" | tee pve-no-subscription.list > /dev/null
 
 # Update Repo List
 apt-get update
