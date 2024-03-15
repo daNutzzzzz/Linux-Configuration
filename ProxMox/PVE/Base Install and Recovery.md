@@ -17,7 +17,7 @@ swapoff -a
 # Storage
 # Prepare Storage: - https://www.hostfav.com/blog/index.php/2017/02/01/add-a-new-physical-hard-drive-to-proxmox-ve-4x-5x/ | Use this Guide!
 
-# Remove Proxmox Subscription Notice
+# Remove Proxmox Subscription Notice (8.1)
 sed -Ezi.bak "s/(Ext.Msg.show\(\{\s+title: gettext\('No valid sub)/void\(\{ \/\/\1/g" /usr/share/javascript/proxmox-widget-toolkit/proxmoxlib.js && systemctl restart pveproxy.service
 
 # Create Host Config Backup Script
