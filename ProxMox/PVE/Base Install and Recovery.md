@@ -21,13 +21,10 @@ swapoff -a
 sed -Ezi.bak "s/(Ext.Msg.show\(\{\s+title: gettext\('No valid sub)/void\(\{ \/\/\1/g" /usr/share/javascript/proxmox-widget-toolkit/proxmoxlib.js && systemctl restart pveproxy.service
 
 # Create Host Config Backup Script
-touch /etc/cron.daily/pve_config_backup.sh
-chmod 755 /etc/cron.daily/pve_config_backup.sh
 mkdir /home/pve-host-01/
+cd /etc/cron.daily/; wget -qO pve_config_backup.sh https://raw.githubusercontent.com/daNutzzzzz/proxmox-stuff/master/prox_config_backup.sh
+chmod 0744 /etc/cron.daily/pve_config_backup.sh
 nano /etc/cron.daily/pve_config_backup.sh
-
-## script
-https://raw.githubusercontent.com/daNutzzzzz/proxmox-stuff/master/prox_config_backup.sh
 
 #Proxmox 1
 curl https://hc-ping.com/9ff4f635-82fa-4313-838d-ad57096f1bb3
