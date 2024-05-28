@@ -1,6 +1,9 @@
 # Disable Swap
 sudo swapoff -a
 
+# Set Timezone
+sudo timedatectl set-timezone Europe/London
+
 # Perform OS Upgrades
 # sudo [ -z "$(find -H /var/lib/apt/lists -maxdepth 0 -mtime -7)" ] && sudo apt-get update && sudo apt-get upgrade -y  && sudo reboot
 sudo [ -z "$(find -H /var/lib/apt/lists -maxdepth 0 -mtime -0)" ] && sudo apt-get update && sudo apt-get upgrade -y  && sudo reboot
