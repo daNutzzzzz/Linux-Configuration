@@ -3,6 +3,8 @@ sudo swapoff -a
 
 # Set Timezone
 sudo timedatectl set-timezone Europe/London
+#sudo ln -f -s /usr/share/zoneinfo/Europe/London /etc/localtime
+#sudo dpkg-reconfigure --frontend noninteractive tzdata
 
 # Perform OS Upgrades
 # sudo [ -z "$(find -H /var/lib/apt/lists -maxdepth 0 -mtime -7)" ] && sudo apt-get update && sudo apt-get upgrade -y  && sudo reboot
