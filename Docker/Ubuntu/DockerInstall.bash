@@ -39,7 +39,7 @@ sudo mkdir /mnt/ssd1/docker/docker-images
 sudo touch /mnt/ssd1/docker/docker-compose/docker-compose.yml
 sudo mkdir /mnt/ssd1/download
 
-# Repoint Docker Images Repository
+# Repoint Docker Images Repository and set default DNS 
 cd /etc/docker/
 sudo touch daemon.json
 sudo nano daemon.json
