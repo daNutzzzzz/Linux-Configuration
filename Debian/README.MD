@@ -21,10 +21,10 @@ TOOLS_URL="https://raw.githubusercontent.com/daNutzzzzz/Linux-Configuration/refs
 MONITORING_URL="https://raw.githubusercontent.com/daNutzzzzz/Linux-Configuration/refs/heads/main/Debian/Configure_Monitoring.sh"
 STORAGE_URL="https://raw.githubusercontent.com/daNutzzzzz/Linux-Configuration/refs/heads/main/Debian/SetupStorage.sh"
 curl -L "$SETUP_URL" -o setup.sh
-curl -L "$BASE_URL" -o setup.sh
-curl -L "$TOOLS_URL" -o setup.sh
-curl -L "$MONITORING_URL" -o setup.sh
-curl -L "$STORAGE_URL" -o setup.sh
+curl -L "$BASE_URL" -o BaseConfig.sh
+curl -L "$TOOLS_URL" -o InstallCoreTools.sh
+curl -L "$MONITORING_URL" -o Configure_Monitoring.sh
+curl -L "$STORAGE_URL" -o SetupStorage.sh
 chmod +x setup.sh
 clear
 bash ./setup.sh
