@@ -45,8 +45,13 @@ sudo touch daemon.json
 sudo nano daemon.json
 
 {
-"data-root": "/mnt/ssd1/docker/docker-images"
+    "data-root": "/mnt/ssd1/docker/docker-images",
+    "dns": [
+        "45.90.28.93",
+        "45.90.30.93"
+    ]
 }
+
 
 # Restart Docker to pick up new location
 sudo systemctl restart docker
