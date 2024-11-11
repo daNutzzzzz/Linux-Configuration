@@ -15,7 +15,9 @@ apt-get install -y \
   nano \
   duf \
   p7zip-full \
-  ufw# Check if UFW is installed and enable it
+  ufw
+  
+# Check if UFW is installed and enable it
 if ! dpkg -s ufw &> /dev/null; then
   echo "UFW is not installed. Installing now..."
   apt-get install ufw -y

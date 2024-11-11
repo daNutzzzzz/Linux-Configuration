@@ -3,7 +3,7 @@
 # Define available scripts
 scripts=(
   "BaseConfig.sh"
-  "Configure Monitoring.sh"
+  "Configure_Monitoring.sh"
   "InstallCoreTools.sh"
   "SetupStorage.sh"
   "Exit"
