@@ -1,13 +1,13 @@
 #!/bin/bash
 
 # Update package lists
-sudo apt update -y
+apt update -y
 
 # Install Samba
-sudo apt install samba -y
+apt install samba -y
 
 # Configure Samba
-# sudo nano /etc/samba/smb.conf
+# nano /etc/samba/smb.conf
 
 # Create the smb.conf file if it doesn't exist
 if [ ! -f /etc/samba/smb.conf ]; then
@@ -78,11 +78,11 @@ eth_interface=$(ip link show | grep -oP 'eth[0-9]+|ens[0-9]+')
 sed -i "s/interfaces = lo/interfaces = lo $eth_interface/g" /etc/samba/smb.conf
 
 # Restart Samba services
-sudo systemctl restart smbd
-sudo systemctl restart nmbd
+systemctl restart smbd
+systemctl restart nmbd
 
 # Create a Samba user
-sudo smbpasswd -a administrator
+smbpasswd -a administrator
 
 done
 
