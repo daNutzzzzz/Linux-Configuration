@@ -16,7 +16,9 @@ touch /etc/exports
 
 # Add the following line to the /etc/exports file:
 cat <<EOF > /etc/exports
-/export/nfs *(rw,sync,no_subtree_check,fsid=0)
+/mnt/data/      10.0.7.0/255.255.255.0(rw,no_root_squash,no_subtree_check,crossmnt,fsid=0)
+/mnt/data/      10.0.8.0/255.255.255.0(rw,no_root_squash,no_subtree_check,crossmnt,fsid=0)
+/mnt/data/      10.0.9.0/255.255.255.0(rw,no_root_squash,no_subtree_check,crossmnt,fsid=0)
 EOF
 
 # Restart NFS services
