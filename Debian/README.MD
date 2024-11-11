@@ -16,19 +16,19 @@ This is a list of software and configurations i use on Linux.
 ```
 apt update && apt -y install curl
 SETUP_URL="https://raw.githubusercontent.com/daNutzzzzz/Linux-Configuration/refs/heads/main/Debian/setup.sh"
-BASE_URL="https://raw.githubusercontent.com/daNutzzzzz/Linux-Configuration/refs/heads/main/Debian/BaseConfig.sh"
-TOOLS_URL="https://raw.githubusercontent.com/daNutzzzzz/Linux-Configuration/refs/heads/main/Debian/InstallCoreTools.sh"
-MONITORING_URL="https://raw.githubusercontent.com/daNutzzzzz/Linux-Configuration/refs/heads/main/Debian/Configure_Monitoring.sh"
-STORAGE_URL="https://raw.githubusercontent.com/daNutzzzzz/Linux-Configuration/refs/heads/main/Debian/SetupStorage.sh"
-NFS_URL="https://raw.githubusercontent.com/daNutzzzzz/Linux-Configuration/refs/heads/main/Debian/setup_nfs_server.sh"
-SAMBA_URL="https://raw.githubusercontent.com/daNutzzzzz/Linux-Configuration/refs/heads/main/Debian/setup_samba_server.sh"
+BASE_URL="https://raw.githubusercontent.com/daNutzzzzz/Linux-Configuration/refs/heads/main/Debian/baseconfig.sh"
+TOOLS_URL="https://raw.githubusercontent.com/daNutzzzzz/Linux-Configuration/refs/heads/main/Debian/coretools.sh"
+MONITORING_URL="https://raw.githubusercontent.com/daNutzzzzz/Linux-Configuration/refs/heads/main/Debian/monitoring.sh"
+STORAGE_URL="https://raw.githubusercontent.com/daNutzzzzz/Linux-Configuration/refs/heads/main/Debian/storage.sh"
+NFS_URL="https://raw.githubusercontent.com/daNutzzzzz/Linux-Configuration/refs/heads/main/Debian/nfs_server.sh"
+SAMBA_URL="https://raw.githubusercontent.com/daNutzzzzz/Linux-Configuration/refs/heads/main/Debian/samba_server.sh"
 curl -L "$SETUP_URL" -o setup.sh
-curl -L "$BASE_URL" -o BaseConfig.sh
-curl -L "$TOOLS_URL" -o InstallCoreTools.sh
-curl -L "$MONITORING_URL" -o Configure_Monitoring.sh
-curl -L "$STORAGE_URL" -o SetupStorage.sh
-curl -L "$NFS_URL" -o SetupStorage.sh
-curl -L "$SAMBA_URL" -o SetupStorage.sh
+curl -L "$BASE_URL" -o BaseConfigonfig.sh
+curl -L "$TOOLS_URL" -o coretools.sh
+curl -L "$MONITORING_URL" -o monitoring.sh
+curl -L "$STORAGE_URL" -o storage.sh
+curl -L "$NFS_URL" -o nfs_server.sh
+curl -L "$SAMBA_URL" -o samba_server.sh
 bash ./setup.sh
 ```
 
@@ -38,12 +38,12 @@ sudo apt install -y curl
 BASE_URL="https://raw.githubusercontent.com/daNutzzzzz/Linux-Configuration/refs/heads/main/Debian"
 SCRIPTS=(
   "setup.sh"
-  "BaseConfig.sh"
-  "InstallCoreTools.sh"
-  "Configure_Monitoring.sh"
-  "SetupStorage.sh"
-  "setup_nfs_server.sh"
-  "setup_samba_server.sh"
+  "baseconfig.sh"
+  "coretools.sh"
+  "monitoring.sh"
+  "storage.sh"
+  "nfs_server.sh"
+  "samba_server.sh"
 )
 for script in "${SCRIPTS[@]}"; do
   curl -L "$BASE_URL/$script" -o "$script"
