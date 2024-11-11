@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Install Core Tools
-sudo apt-get update -y
-sudo apt-get install -y \
+apt-get update -y
+apt-get install -y \
   glances \
   dmidecode \
   parted \
@@ -18,13 +18,13 @@ sudo apt-get install -y \
   ufw# Check if UFW is installed and enable it
 if ! dpkg -s ufw &> /dev/null; then
   echo "UFW is not installed. Installing now..."
-  sudo apt-get install ufw -y
+  apt-get install ufw -y
 fi
 
-sudo ufw default allow incoming
-sudo ufw default deny outgoing
-sudo ufw enable
-sudo ufw allow ssh
+ufw default allow incoming
+ufw default deny outgoing
+ufw enable
+ufw allow ssh
 
 # Install GDU
 echo "Installing GDU..."
