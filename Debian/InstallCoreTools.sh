@@ -23,8 +23,8 @@ if ! dpkg -s ufw &> /dev/null; then
   apt-get install ufw -y
 fi
 
-ufw default allow incoming
-ufw default deny outgoing
+# ufw default allow incoming
+# ufw default deny outgoing
 ufw enable
 ufw allow ssh
 
