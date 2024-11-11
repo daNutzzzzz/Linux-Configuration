@@ -31,3 +31,23 @@ curl -L "$NFS_URL" -o SetupStorage.sh
 curl -L "$SAMBA_URL" -o SetupStorage.sh
 bash ./setup.sh
 ```
+
+```
+sudo apt update -y
+sudo apt install -y curl
+BASE_URL="https://raw.githubusercontent.com/daNutzzzzz/Linux-Configuration/refs/heads/main/Debian"
+SCRIPTS=(
+  "setup.sh"
+  "BaseConfig.sh"
+  "InstallCoreTools.sh"
+  "Configure_Monitoring.sh"
+  "SetupStorage.sh"
+  "setup_nfs_server.sh"
+  "setup_samba_server.sh"
+)
+for script in "${SCRIPTS[@]}"; do
+  curl -L "$BASE_URL/$script" -o "$script"
+done
+chmod +x *.sh
+bash ./setup.sh
+```

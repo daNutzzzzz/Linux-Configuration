@@ -2,12 +2,12 @@
 
 # Define available scripts
 scripts=(
-  "BaseConfig"
-  "Install_CoreTools"
-  "Configure Monitoring"
-  "Install & Setup Storage"
-  "Install & Setup NFS Server"
-  "Install & Setup Samba Server"
+  "baseconfig.sh"
+  "coretools.sh"
+  "monitoring.sh"
+  "Storage.sh"
+  "nfs_server.sh"
+  "samba_server.sh"
   "Exit"
 )
 
@@ -18,34 +18,34 @@ echo "** Server Setup Menu **"
 ps3="Please enter your choice (1-$((${#scripts[@]} - 1)) or 'Exit'): "
 select script in "${scripts[@]}"; do
   case $script in
-    "BaseConfig.sh")
+    "baseconfig.sh")
       echo "Running BaseConfig.sh..."
       bash BaseConfig.sh  # Replace with actual execution command if needed
       break
       ;;
-    "Configure Monitoring.sh")
-      echo "Running Configure Monitoring.sh..."
-      bash Configure_Monitoring.sh  # Escape spaces in filenames
-      break
-      ;;
-    "InstallCoreTools.sh")
+    "CoreTools.sh")
       echo "Running InstallCoreTools.sh..."
-      bash InstallCoreTools.sh
+      bash coretools.sh
       break
       ;;
-    "SetupStorage.sh")
+    "monitoring.sh")
+      echo "Running Configure Monitoring.sh..."
+      bash monitoring.sh  # Escape spaces in filenames
+      break
+      ;;
+    "storage.sh")
       echo "Running SetupStorage.sh..."
-      bash SetupStorage.sh
+      bash storage.sh
       break
       ;;
-    "setup_nfs_server.sh")
+    "nfs_server.sh")
       echo "Running setup_nfs_server.sh..."
-      bash setup_nfs_server.sh
+      bash nfs_server.sh
       break
       ;;
-    "setup_samba_server.sh")
+    "samba_server.sh")
       echo "Running setup_samba_server.sh..."
-      bash setup_samba_server.sh
+      bash samba_server.sh
       break
       ;;
     "Exit")
