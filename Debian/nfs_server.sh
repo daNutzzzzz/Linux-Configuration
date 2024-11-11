@@ -7,15 +7,17 @@ apt update -y
 apt install nfs-kernel-server nfs-common -y
 
 # Configure NFS server
-mkdir /export/nfs
-chown nfs:nfs /export/nfs
-chmod 777 /export/nfs
+mkdir /mnt/data
+chown nfs:nfs /mnt/data
+chmod 777 /mnt/data
 
-# Edit /etc/exports file
-nano /etc/exports
+# Create /etc/exports file
+touch /etc/exports
 
 # Add the following line to the /etc/exports file:
+cat <<EOF > /etc/exports
 /export/nfs *(rw,sync,no_subtree_check,fsid=0)
+EOF
 
 # Restart NFS services
 systemctl restart nfs-kernel-server
