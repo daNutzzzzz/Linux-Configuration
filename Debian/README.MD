@@ -29,6 +29,6 @@ curl -L "$MONITORING_URL" -o Configure_Monitoring.sh
 curl -L "$STORAGE_URL" -o SetupStorage.sh
 curl -L "$NFS_URL" -o SetupStorage.sh
 curl -L "$SAMBA_URL" -o SetupStorage.sh
-nbash ./setup.sh
+bash ./setup.sh
 ```
 
