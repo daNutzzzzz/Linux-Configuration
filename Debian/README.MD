@@ -25,7 +25,8 @@ curl -L "$BASE_URL" -o BaseConfig.sh
 curl -L "$TOOLS_URL" -o InstallCoreTools.sh
 curl -L "$MONITORING_URL" -o Configure_Monitoring.sh
 curl -L "$STORAGE_URL" -o SetupStorage.sh
-chmod +x setup.sh
+chmod +x *.sh
 clear
 bash ./setup.sh
 ```
+

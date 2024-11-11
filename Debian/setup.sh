@@ -23,7 +23,7 @@ select script in "${scripts[@]}"; do
       ;;
     "Configure Monitoring.sh")
       echo "Running Configure Monitoring.sh..."
-      bash Configure\ Monitoring.sh  # Escape spaces in filenames
+      bash Configure_Monitoring.sh  # Escape spaces in filenames
       break
       ;;
     "InstallCoreTools.sh")
