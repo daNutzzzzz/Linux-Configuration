@@ -31,4 +31,3 @@ curl -L "$NFS_URL" -o SetupStorage.sh
 curl -L "$SAMBA_URL" -o SetupStorage.sh
 bash ./setup.sh
 ```
-
