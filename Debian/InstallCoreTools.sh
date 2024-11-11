@@ -25,8 +25,8 @@ fi
 
 # ufw default allow incoming
 # ufw default deny outgoing
-ufw enable
-ufw allow ssh
+# ufw enable
+# ufw allow ssh
 
 # Install GDU
 echo "Installing GDU..."
@@ -42,3 +42,7 @@ if [ $? -ne 0 ]; then
   echo "Error occurred during installation. Please check the logs for more details."
   exit 1
 fi
+
+done
+
+echo "** Script execution completed. **"

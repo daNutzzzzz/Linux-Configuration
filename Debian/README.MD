@@ -20,13 +20,15 @@ BASE_URL="https://raw.githubusercontent.com/daNutzzzzz/Linux-Configuration/refs/
 TOOLS_URL="https://raw.githubusercontent.com/daNutzzzzz/Linux-Configuration/refs/heads/main/Debian/InstallCoreTools.sh"
 MONITORING_URL="https://raw.githubusercontent.com/daNutzzzzz/Linux-Configuration/refs/heads/main/Debian/Configure_Monitoring.sh"
 STORAGE_URL="https://raw.githubusercontent.com/daNutzzzzz/Linux-Configuration/refs/heads/main/Debian/SetupStorage.sh"
+NFS_URL="https://raw.githubusercontent.com/daNutzzzzz/Linux-Configuration/refs/heads/main/Debian/setup_nfs_server.sh"
+SAMBA_URL="https://raw.githubusercontent.com/daNutzzzzz/Linux-Configuration/refs/heads/main/Debian/setup_samba_server.sh"
 curl -L "$SETUP_URL" -o setup.sh
 curl -L "$BASE_URL" -o BaseConfig.sh
 curl -L "$TOOLS_URL" -o InstallCoreTools.sh
 curl -L "$MONITORING_URL" -o Configure_Monitoring.sh
 curl -L "$STORAGE_URL" -o SetupStorage.sh
-chmod +x *.sh
-clear
-bash ./setup.sh
+curl -L "$NFS_URL" -o SetupStorage.sh
+curl -L "$SAMBA_URL" -o SetupStorage.sh
+nbash ./setup.sh
 ```
 

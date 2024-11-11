@@ -2,10 +2,12 @@
 
 # Define available scripts
 scripts=(
-  "BaseConfig.sh"
-  "Configure_Monitoring.sh"
-  "InstallCoreTools.sh"
-  "SetupStorage.sh"
+  "BaseConfig"
+  "Install_CoreTools"
+  "Configure Monitoring"
+  "Install & Setup Storage"
+  "Install & Setup NFS Server"
+  "Install & Setup Samba Server"
   "Exit"
 )
 
@@ -34,6 +36,16 @@ select script in "${scripts[@]}"; do
     "SetupStorage.sh")
       echo "Running SetupStorage.sh..."
       bash SetupStorage.sh
+      break
+      ;;
+    "setup_nfs_server.sh")
+      echo "Running setup_nfs_server.sh..."
+      bash setup_nfs_server.sh
+      break
+      ;;
+    "setup_samba_server.sh")
+      echo "Running setup_samba_server.sh..."
+      bash setup_samba_server.sh
       break
       ;;
     "Exit")
