@@ -6,6 +6,22 @@ apt update -y
 # Install Samba
 apt install samba -y
 
+# Stop Services
+systemctl stop nmbd.service
+systemctl stop smbd.service
+
+# Disable NetBIOS over IP
+systemctl disable nmbd.service
+
+# Copy Original config
+mv /etc/samba/smb.conf /etc/samba/smb.conf.orig
+
+# Configure Samba server
+#mkdir /mnt/data
+mkdir /mnt/data/Multimedia/
+chown :sambashare /mnt/data/Multimedia/
+#chmod 777 /mnt/data
+
 # Configure Samba
 # nano /etc/samba/smb.conf
 
@@ -17,7 +33,7 @@ fi
 # Write the configuration to the file
 cat <<EOF > /etc/samba/smb.conf
 [global]
-    server string = DebianMediaBU Samba Server
+    server string = $hostname Samba Server
     server role = standalone server
     workgroup = WORKGROUP
     netbios name = debian
@@ -77,12 +93,18 @@ eth_interface=$(ip link show | grep -oP 'eth[0-9]+|ens[0-9]+')
 # Insert the interface name into smb.conf
 sed -i "s/interfaces = lo/interfaces = lo $eth_interface/g" /etc/samba/smb.conf
 
+# Test config
+testparm
+
 # Restart Samba services
 systemctl restart smbd
 systemctl restart nmbd
 
 # Create a Samba user
 smbpasswd -a administrator
+
+# Enable a Samba user
+smbpasswd -e administrator
 
 done
 
