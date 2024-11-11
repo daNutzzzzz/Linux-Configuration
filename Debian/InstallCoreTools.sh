@@ -3,35 +3,26 @@
 # Install Core Tools
 sudo apt-get update -y
 sudo apt-get install -y \
-    ## System Monitor
-    glances \
-    ## HardwareInfo
-    dmidecode \
-    ## Disk Management Tools
-    parted \
-    ## Network Management Tools
-    iputils-ping \
-    net-tools \
-    ## Disk Performance Tools
-    atop \
-    htop \
-    iotop \
-    bashtop \
-    ## Install File Editor
-    nano \
-    ## Storage
-    duf \
-    ## 7zip
-    p7zip-full \
-    ## Firewall & Configure
-    ufw
-
-# Check if UFW is installed and enable it
+  glances \
+  dmidecode \
+  parted \
+  iputils-ping \
+  net-tools \
+  atop \
+  htop \
+  iotop \
+  bashtop \
+  nano \
+  duf \
+  p7zip-full \
+  ufw# Check if UFW is installed and enable it
 if ! dpkg -s ufw &> /dev/null; then
   echo "UFW is not installed. Installing now..."
   sudo apt-get install ufw -y
 fi
 
+sudo ufw default allow incoming
+sudo ufw default deny outgoing
 sudo ufw enable
 sudo ufw allow ssh
 
