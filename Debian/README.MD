@@ -13,7 +13,7 @@ This is a list of software and configurations i use on Linux.
 * [Debian](Debian/)
 
 # Download and run Setup.sh
-echo "Settingup Debian..."
+```
 apt update && apt -y install curl
 SETUP_URL="https://raw.githubusercontent.com/daNutzzzzz/Linux-Configuration/refs/heads/main/Debian/setup.sh"
 BASE_URL="https://raw.githubusercontent.com/daNutzzzzz/Linux-Configuration/refs/heads/main/Debian/BaseConfig.sh"
@@ -28,3 +28,4 @@ curl -L "$STORAGE_URL" -o setup.sh
 chmod +x setup.sh
 clear
 bash ./setup.sh
+```
