@@ -103,6 +103,9 @@ testparm
 systemctl restart smbd
 systemctl restart nmbd
 
+# Create a UNIX user
+useradd administrator
+
 # Create a Samba user
 smbpasswd -a administrator
 
