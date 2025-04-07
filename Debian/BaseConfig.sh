@@ -43,8 +43,6 @@ if [ ! -f /etc/ssh/sshd_config ]; then
     exit 1
 fi
 
-
-
 # Append the line to the end of the file
 echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
 
