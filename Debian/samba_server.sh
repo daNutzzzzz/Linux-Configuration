@@ -20,7 +20,10 @@ mv /etc/samba/smb.conf /etc/samba/smb.conf.orig
 #mkdir /mnt/data
 mkdir /mnt/data/Multimedia/
 chown :sambashare /mnt/data/Multimedia/
+
+# Permission data share
 #chmod 777 /mnt/data
+chown -R administrator /mnt/data && chgrp -R administrator /mnt/data
 
 # Configure Samba
 # nano /etc/samba/smb.conf
@@ -99,6 +102,9 @@ testparm
 # Restart Samba services
 systemctl restart smbd
 systemctl restart nmbd
+
+# Create a UNIX user
+useradd administrator
 
 # Create a Samba user
 smbpasswd -a administrator

@@ -9,9 +9,6 @@ This is a list of software and configurations i use on Linux.
 * [Downloads](https://www.debian.org/distrib/netinst)
 * [Manuals](https://www.debian.org/releases/stable/installmanual)
 
-## Config
-* [Debian](Debian/)
-
 # Download and run Setup.sh
 ```
 sudo apt update -y
