@@ -3,6 +3,7 @@
 # Install Core Tools
 apt-get update -y
 apt-get install -y \
+  nmon \
   glances \
   dmidecode \
   parted \

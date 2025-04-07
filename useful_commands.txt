@@ -1,0 +1,81 @@
+Before mentioning some of the tools remember that adding --help to any of the commands will normally throw you some help for the command. 
+
+For example dmesg --help. Why do I mention this, because most of the time this will give you very good information about how to use the command, make it more verbose or simple or how to output some info. The --help parameter is one of 3 that can show you information about a command. The other 2 are info and man. For example man dmesg or info dmesg. This 2 show more info about a command. In the order of --help showing you less help and man showing you the most.
+
+The following list is a small list of commands I use to check problems:
+
+dmesg - Shows Boot Up Message and other Kernel related messages like device connections (When you plug in a new device eg: external hard drives, webcams, bluetooth devices...). Type dmesg in console and it will show you how the system booted up. If you have hard drive problems or any other booting problem they might show here.
+
+lshw - It shows you the Hardware List for all devices connected and in the PC.
+
+lsusb - It shows you all USB devices connected.
+
+lscpu - Shows you basic CPU information.
+
+lspci - Shows you all PCI devices (Video Card, Sound Card, Capture Card...)
+
+lsb_release -a - Shows you the Ubuntu Version, Codename, Release..
+
+lspcmcia - Shows you all pcmcia devices connected to the PC.
+
+lshal - Shows you all devices registered with HAL. If the device uses HAL it will appear.
+
+lsmod - Shows you all modules loaded with the kernel
+
+modprobe - Adds or Removes modules to and from the kernel.
+
+lsblk - Shows you all block devices. In normal language it means it shows you a nice little list of how you partitioned you hard drives, size of each partition, where it is mounted, etc...
+
+fsck - Used to fix several filesystem errors. DO NOT USE IT ON A MOUNTED PARTITION!. This is similar to chkdsk on Windows but with steroids.
+
+X(Capital letter X) - The X system. If you have xorg.conf problems you can do X --configure to create a new xorg.conf and X -config XORGFILE to test a xorg.conf (XORGFILE is the path and name of the xorg.conf file). X also does many MANY things.
+
+xrandr - To change, check and do custom changes to the resolution.
+
+dmidecode - Shows memory specific information. Needs sudo to run.
+
+add-apt-repository / apt-add-repository - Used to add PPAs. For example add-apt-repository ppa:ubuntu-wine/ppa. saves from having to add it manually and then add the key for it.
+
+apt-get - Default installer for packages in Ubuntu. Example: apt-get install wine1.3
+
+aptitude - Excellent installer for packages in Ubuntu. Example: aptitude install wine1.3. Includes search options, cleaning and other in one single command. This are also included in the apt packages but divided in several commands.
+
+alsamixer - Sound mixer in console. This solves some sound problems related to microphone not working, sound not very loud...
+
+dpkg - Official package manager for debian based packages.
+
+df - shows free space and used space for each partition/mounted device.
+
+glxinfo - Used to show OpenGL information about the video card. Needs to install the mesa-util package to use it.
+
+glxheads - Used to show basic OpenGL video card information. Video card name, OpenGL version and Vendor.
+
+hdparm - Used to check and perform several actions/tests/checks in regard to hard drives.
+
+netstat - Shows you network connections, routing...
+
+nano / pico - My best friend. Edit files in the terminal. I know..I know. vi or vim. But it has a very weird learning curve and I want something "user friendly" and not "hacker angry". It is true there are many things you can do with vi but it is easier to learn nano or pico than to learn vi. I will actually learn vi before the end of the year.. it is on my wish/work list.
+
+ntfsfix - Fixes some ntfs partition problems.
+
+wineserver - Manages wine apps. If you add the parameter -k like so wineserver -k it will close/kill any wine app opened. This will solve wine app problems that stay opened without closing or having some hanging problems.
+
+testdisk - Recovers deleted partitions.
+
+photorec - Recovers multiple files deleted overtime. Has a very good recovery percent.
+
+foremost - Recovers multiple file deleted overtime. Has a better recovery than photorec in several formats but since it has not been updated since 2007 photorec with the work done in it has much of it surpassed it. Version 6.13 Beta is many times better. Although I still use both just in case.
+
+parted - Partition manipulation software. Nice one.
+
+fdisk - Similar to parted. Very good also.
+
+ssh - Remote control protocol. Without this about 90% of all remote assistance for me would be gone.
+
+kill - Kills a specific process using its ID. Add the parameter -9 to it to kill it with a machine gun filled with velociraptors holding scissors with bullets. Example: kill -9 12345
+
+killall - Similar to kill but using the process name. Example: killall lightdm. You can also use the -9 parameter but using it with the ID as in the kill command.
+
+top - Shows you all process active, zombies and whatnot. Real time check.
+
+ps - Shows to a list of runnin process. Not in real time as in top. Add the paramater -ex to it to see a better list of the process with name, locations, parent ID... . Example: ps -ex
