@@ -19,7 +19,7 @@ sudo nano /etc/docker/daemon.json
     "data-root": "/mnt/ssd1/docker/docker-images",
     "dns": [
         "45.90.28.93",
-		"2a07:a8c0::",
+	"2a07:a8c0::",
         "45.90.30.93",
         "2a07:a8c1::"
     ]
@@ -30,7 +30,7 @@ sudo nano /etc/docker/daemon.json
     "data-root": "/mnt/ssd1/docker/docker-images",
     "dns": [
         "45.90.28.93",
-		"2a07:a8c0::",
+	"2a07:a8c0::",
         "45.90.30.93",
         "2a07:a8c1::"
         ],
@@ -43,7 +43,7 @@ sudo nano /etc/docker/daemon.json
     "data-root": "/mnt/ssd1/docker/docker-images",
     "dns": [
         "45.90.28.0#c99416.dns.nextdns.io",
-		"2a07:a8c0::#c99416.dns.nextdns.io",
+	"2a07:a8c0::#c99416.dns.nextdns.io",
         "45.90.30.0#c99416.dns.nextdns.io",
         "2a07:a8c1::#c99416.dns.nextdns.io"
         ],
