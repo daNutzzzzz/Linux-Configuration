@@ -1,3 +1,21 @@
+# Check if the file exists
+if [ ! -f /etc/ssh/sshd_config ]; then
+    echo "Error: /etc/ssh/sshd_config file not found."
+    exit 1
+fi
+
+# Append the line to the end of the file
+echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
+
+# Restart SSH service (optional, depending on your system)
+systemctl restart sshd
+
+# Append the line to the end of the file
+echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
+
+# Restart SSH service (optional, depending on your system)
+systemctl restart sshd
+
 # Disable Swap
 swapoff -a
 
@@ -33,21 +51,22 @@ timedatectl set-timezone Europe/London
 #sudo ln -f -s /usr/share/zoneinfo/Europe/London /etc/localtime
 #sudo dpkg-reconfigure --frontend noninteractive tzdata
 
+# corerect sourcews if using iso installer
+sed -i '/^deb cdrom:/s/^/#/' /etc/apt/sources.list
+
+sh -c '
+echo "deb http://deb.debian.org/debian/ bookworm main contrib non-free non-free-firmware
+deb-src http://deb.debian.org/debian/ bookworm main contrib non-free non-free-firmware
+
+deb http://security.debian.org/debian-security bookworm-security main contrib non-free non-free-firmware
+deb-src http://security.debian.org/debian-security bookworm-security main contrib non-free non-free-firmware
+
+deb http://deb.debian.org/debian/ bookworm-updates main contrib non-free non-free-firmware
+deb-src http://deb.debian.org/debian/ bookworm-updates main contrib non-free non-free-firmware" > /etc/apt/sources.list'
+
 # Perform OS Upgrades
 # sudo [ -z "$(find -H /var/lib/apt/lists -maxdepth 0 -mtime -7)" ] && sudo apt-get update && sudo apt-get upgrade -y  && sudo reboot
 [ -z "$(find -H /var/lib/apt/lists -maxdepth 0 -mtime -0)" ] && sudo apt-get update && sudo apt-get upgrade -y  && sudo reboot
-
-# Check if the file exists
-if [ ! -f /etc/ssh/sshd_config ]; then
-    echo "Error: /etc/ssh/sshd_config file not found."
-    exit 1
-fi
-
-# Append the line to the end of the file
-echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
-
-# Restart SSH service (optional, depending on your system)
-systemctl restart sshd
 
 # Change Root Password
 passwd root

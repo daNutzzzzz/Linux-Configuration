@@ -5,7 +5,7 @@ mount /dev/sda /mnt/ssd1
 lsblk
 blkid /dev/sda
 #nano /etc/fstab # NOT WORKING
-UUID=d3d7bbac-49ec-4c65-b102-f33c360b92c0 /mnt/SSD1 ext4 defaults,auto 0 0
+UUID=633fef49-2d67-4da5-84ca-cdb0ea6e3ff5 /mnt/SSD1 ext4 defaults,auto 0 0
 
 # Mount external drive
 nano /etc/systemd/system/mnt-ssd1.mount
@@ -35,7 +35,6 @@ systemctl enable mnt-ssd1.mount
 reboot now
 
 
-
 # Intsall GDU
 apt install curl
 
@@ -53,7 +52,6 @@ chown -R 1000:1000 /mnt/ssd1/docker
 
 # Install NFS client tools
 apt install nfs-common
-
 
 # Add Docker's official GPG key:
 apt-get update

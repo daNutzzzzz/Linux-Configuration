@@ -3,6 +3,25 @@
 # Backup /etc/resolv.conf 
 cp /etc/docker/daemon.json /etc/docker/daemon.jsonBU
 
+# Add new images location to docker deamon
+echo '{ "data-root": "/mnt/ssd1/docker/docker-images" }' | tee /etc/docker/daemon.json
+
+# echo '{ "data-root": "/mnt/ssd1/docker/docker-images", "dns": [ "45.90.28.93", "2a07:a8c0::", "45.90.30.93", "2a07:a8c1::" ] }' | tee /etc/docker/daemon.json
+
+# Restart Docker
+systemctl restart docker
+
+
+
+
+=================================
+
+
+
+
+
+
+
 ## Create a JSON file
 sudo nano /etc/docker/daemon.json
 
