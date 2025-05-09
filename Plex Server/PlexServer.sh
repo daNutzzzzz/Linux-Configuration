@@ -33,3 +33,31 @@ chown -R 1000:1000 /mnt/ssd1/docker
 
 # Install NFS client tools
 apt install nfs-common
+
+##############
+## GPU transcoding Tools (install on PVE host)
+##############
+
+# Tone Mapping
+https://ffmpeg.org/ffmpeg-filters.html#Tone-mapping
+http://underpop.online.fr/f/ffmpeg/help/tonemap.htm.gz
+
+## GPU Passtrhough
+
+# Intel GPU
+apt install intel-gpu-tools
+intel_gpu_top
+
+# Nvidia
+apt install nvidia-detect
+nvidia-detect
+
+apt search nvidia-driver
+apt install nvidia-driver
+nvidia-smi
+
+## apt install firmware-misc-nonfree
+
+# AMD
+apt install amdgpu-top
+amdgpu-top
