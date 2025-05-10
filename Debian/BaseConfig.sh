@@ -13,36 +13,6 @@ systemctl restart sshd
 # Disable Swap
 swapoff -a
 
-#set DNS - https://learnubuntu.com/change-dns-server/
-# Backup /etc/resolv.conf 
-cp /etc/resolv.conf /etc/resolv.confBU
-
-# Update /etc/resolv.conf with provided nameservers
-#echo "nameserver 45.90.28.0" >> /etc/resolv.conf
-#echo "nameserver 2a07:a8c0::" >> /etc/resolv.conf
-#echo "nameserver 45.90.30.0" >> /etc/resolv.conf
-#echo "nameserver 2a07:a8c1::" >> /etc/resolv.conf
-
-# Add the following line to the /etc/systemd/resolved.conf file:
-#cat <<EOF > /etc/resolv.conf
-#search nexus.com
-#nameserver 45.90.28.0
-#nameserver 2a07:a8c0::
-#nameserver 45.90.30.0
-#nameserver 2a07:a8c1::
-#DNSOverTLS=yes
-#EOF
-
-sh -c "$(curl -sL https://nextdns.io/install)"
-options:
-
-
-
-#nextdns start
-#nextdns stop
-#nextdns restart
-#nextdns log
-
 # Set Timezone
 timedatectl set-timezone Europe/London
 #sudo ln -f -s /usr/share/zoneinfo/Europe/London /etc/localtime
@@ -63,7 +33,43 @@ deb-src http://deb.debian.org/debian/ bookworm-updates main contrib non-free non
 
 # Perform OS Upgrades
 # sudo [ -z "$(find -H /var/lib/apt/lists -maxdepth 0 -mtime -7)" ] && sudo apt-get update && sudo apt-get upgrade -y  && sudo reboot
-[ -z "$(find -H /var/lib/apt/lists -maxdepth 0 -mtime -0)" ] && sudo apt-get update && sudo apt-get upgrade -y  && sudo reboot
+[ -z "$(find -H /var/lib/apt/lists -maxdepth 0 -mtime -0)" ] && apt-get update && apt-get upgrade -y  && reboot
+
+#set DNS - https://learnubuntu.com/change-dns-server/
+# Backup /etc/resolv.conf 
+cp /etc/resolv.conf /etc/resolv.confBU
+
+# Update /etc/resolv.conf with provided nameservers
+#echo "nameserver 45.90.28.0" >> /etc/resolv.conf
+#echo "nameserver 2a07:a8c0::" >> /etc/resolv.conf
+#echo "nameserver 45.90.30.0" >> /etc/resolv.conf
+#echo "nameserver 2a07:a8c1::" >> /etc/resolv.conf
+
+# Add the following line to the /etc/systemd/resolved.conf file:
+#cat <<EOF > /etc/resolv.conf
+#search nexus.com
+#nameserver 45.90.28.0
+#nameserver 2a07:a8c0::
+#nameserver 45.90.30.0
+#nameserver 2a07:a8c1::
+#DNSOverTLS=yes
+#EOF
+
+apt install curl
+sh -c "$(curl -sL https://nextdns.io/install)"
+options:
+i
+c99416
+y
+n
+y
+y
+y
+
+#nextdns start
+#nextdns stop
+#nextdns restart
+#nextdns log
 
 # Change Root Password
 passwd root
