@@ -10,12 +10,6 @@ echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
 # Restart SSH service (optional, depending on your system)
 systemctl restart sshd
 
-# Append the line to the end of the file
-echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
-
-# Restart SSH service (optional, depending on your system)
-systemctl restart sshd
-
 # Disable Swap
 swapoff -a
 
@@ -40,6 +34,9 @@ cp /etc/resolv.conf /etc/resolv.confBU
 #EOF
 
 sh -c "$(curl -sL https://nextdns.io/install)"
+options:
+
+
 
 #nextdns start
 #nextdns stop
